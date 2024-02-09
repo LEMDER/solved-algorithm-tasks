@@ -1,0 +1,87 @@
+IT2-2011  ALISHER LENKHAN
+
+1)
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+    int n;
+    cout << "Write four-digit number:";
+    cin >> n;
+    
+    if (n/1000==n%10 && ((n / 100)%10)==(n % 100 / 10)){
+        cout << "TRUE" << endl;
+    }
+    else{
+        cout << "FALSE" << endl;
+    }
+
+    return 0;
+
+2) 
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+    int n;
+    cout << "Write N:";
+    cin >> n;
+    
+    for (int i=2; i < n; i++){
+        if(n%i == 0)
+        cout << i << " ";
+    }
+
+    return 0;
+}
+
+3)
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+    int i, n;
+
+    cout << "odd composite numbers:";
+    for(i=1; i<100; i++){
+        if((i!=2 and i!=3 and i!=0 and i%2!=0) and (i%2==0 or i%3==0))
+        cout << i << " ";
+    }
+
+    return 0;
+}
+
+4)
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+    int n, a, b, c;
+    cout << "Write three-digit number:";
+    cin >> n;
+    
+       a = (n / 100)%10;
+
+       b = (n / 10)%10;
+
+       c = (n / 1)%10;
+    
+    if ( a == b && b == c && a == c){
+        cout << "TRUE" << endl;
+    }
+    else{
+        cout << "FALSE" << endl;
+    }
+
+    return 0;
+}

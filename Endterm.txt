@@ -1,0 +1,86 @@
+2)
+#include <iostream>
+using namespace std;
+int sumNum(int n){
+    int sum = 0;
+    while (n>0){
+        sum +=n%10;
+        n/=10;
+    }
+    return sum;
+}
+int* getSorted(int * source, int size)
+{
+    int rc = (int ) malloc(sizeof(int)*size); // исправлено
+    int tmp = 0;
+    for (int i = 0; i < size; i++)
+        rc[i] = source[i];
+
+    for (int i = 1; i < size; i++)
+    {
+        for (int r = 0; r < (size - i); r++)
+        {
+            if (rc[r] < rc[r + 1])
+            {
+                tmp = rc[r];
+                rc[r] = rc[r + 1];
+                rc[r + 1] = tmp;
+            }
+        }
+    }
+    return &rc[0];
+}
+void printArray(int array[], int size) {
+    for (int i = 0; i < size; ++i) {
+        cout << array[i] << ' ';
+    }
+    cout << "\n";
+}
+int main(){
+    int n;
+    cin >> n;
+    int arr[n], *arr2 = new int[n];
+    for (int i = 0; i < n; ++i) {
+        cin >> arr[i];
+        arr2[i] = sumNum(arr[i]);
+    }
+    arr2 = getSorted(arr2,n);
+    printArray(arr2,n);
+    return  0;
+}
+
+3)
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+
+int main()
+{
+    string s;
+    cout << "Sentence:";
+    cin >> s;
+    int count = 1;
+    bool adtht = false;
+    for(int i = 0; i < s.length(); i++) {
+        if(count >= 5) {
+            adtht = true;
+            break;
+        }
+        if(s[i] < 96) {
+            count = 1;
+        }
+        else {
+            count++;
+        }
+    }
+
+    if(adtht) {
+        cout << "INVALID";
+    } 
+    else {
+        cout << "VALID";
+    }
+    return 0;
+}

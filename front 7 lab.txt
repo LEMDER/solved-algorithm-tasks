@@ -1,0 +1,166 @@
+const game = {
+    team1: 'Bayern Munich',
+    team2: 'Borussia Dortmund',
+    players: [
+    [
+    'Neuer',
+    'Pavar',
+    'Martinez',
+    'Alaba',
+    'Davies ',
+    'Kimmich',
+    'Goretzka',
+    'Coman',
+    'Muller',
+    'Gnarby',
+    'Lewandozski'],
+     [
+    'Burki',
+    'Schulz',
+    'Hummels',
+    'Akanji',
+    'Hakimi',
+    'Weigl',
+    'Witsel',
+    'Hazard',
+    'Brandt',
+    'Sancho',
+    'Gotze',
+    ],
+    ],
+    score: '4:0',
+    scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+    date: 'Nov 9th,2037',
+    odds: {
+        team1: 1.33,
+        x: 3.25,
+        team2: 6.5,
+    },
+    };
+
+    let [players1, players2] = game.players;
+    let gk = players1[0];
+    let fieldPlayers = players1.slice(1,11);
+    let allPlayers = players1.concat(players2);
+    let players1Final = players1.concat('Thiago', 'Coutinho', 'Perisic')
+    let {team1, x:draw, team2} = game.odds;
+
+    console.log(players1);
+    console.log(players2);
+
+    console.log(gk);
+    console.log(fieldPlayers);
+
+    console.log(allPlayers);
+
+    console.log(players1Final);
+
+    console.log(team1);
+    console.log(draw);
+    console.log(team2);
+
+    let scored1 = ['Davies', 'Muller', 'Lewandowski', 'Kimmich'];
+
+    function printGoals(array){
+    for(let i = 0; i < array.length; i++){
+        let temp = 0;
+        for(let j = 0; j < array.length; j++){
+            if(array[i] == array[j]){
+                temp++; 
+            }
+        }
+        console.log(`${array[i]}  ${temp}`);
+    }
+}
+printGoals(scored1);
+printGoals(game.scored);
+
+
+
+   
+for(let i = 0; i < game.scored.length; i++){
+    console.log(`Goal ${i+1}: ${game.scored[i]}`);
+}
+
+console.log(`Odd of victory ${game.team1}: ${game.odds.team1}`);
+console.log(`Odd of draw: ${game.odds.x}`);
+console.log(`Odd of victory ${game.team2}: ${game.odds.team2}`);
+
+
+
+
+// task 3 
+
+const gameEvents = new Map(
+    [
+    [17, '⚽ GOAL'],
+    [36, '🔁 Substitution'],
+    [47, '⚽ GOAL'],
+    [61, '🔁 Substitution'],
+    [64,'🔶 Yellow card'],
+    [69,'🔴 Red card'], 
+    [70,'🔁 Substitution'],
+    [72, '🔁 Substitution'],
+    [76, '⚽ GOAL'],
+    [80, '⚽ GOAL'],
+    [92, '🔶 Yellow card'],
+    ]);
+
+
+
+let events = [...new Set(gameEvents.values())];
+console.log(events);
+
+gameEvents.delete(64);
+console.log(gameEvents);
+
+let avgEvents = 90/gameEvents.size;
+console.log(`An event happened, on average, every ${avgEvents} minutes`);
+
+
+for(let [key, event] of gameEvents){
+   console.log(key <= 45 ? '[FIRST HALF]' + event: '[SECOND HALF]' + event);
+}
+
+
+
+
+
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
+const text = document.querySelector('textarea');
+const button = document.querySelector('button');
+button.addEventListener('click', function() {
+    let words = text.value.toLowerCase().split('\n');
+    words = words.map(function (sp) {
+        return sp.trim();
+    });
+    console.log(words);
+    
+    const fixedNames = words
+    .filter(word => word.includes('_'))
+    .map((word, i) => camelCase(word).padEnd(20, ' ') + '✔️'.repeat(i + 1));
+    console.log(fixedNames.join('\n'));
+});
+
+function camelCase(word){
+    halves = word.split('_');
+    halves[1] = halves[1].slice(0, 1).toUpperCase() + halves[1].slice(1);
+    return halves.join('');
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

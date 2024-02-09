@@ -1,0 +1,133 @@
+Alisher Lenkhan   IT2-2011
+
+1)
+#include<iostream>
+#include<string>
+using namespace std;
+int main() {
+    
+    string l;
+    cin >> l;
+    int k = 0;
+    for (int i = 0; i < l.length(); i++) {
+        if (l[i] == '0')k++;
+        else {
+            cout << (char)(97 + k);
+            k = 0;
+        }
+    }
+ return 0;
+}
+
+2)
+#include <iostream>
+#include<string>
+using namespace std;
+int main() {
+    string L;
+    int Sum = 0;
+    cout << "Input:";
+    cin >> L;
+    for (int i = 0; i < L.length(); i++) {
+        if (L[i] == '>' && L[i + 1] == '>' && L[i + 2] == '-' && L[i + 3] == '-' && L[i + 4] == '>' || L[i] == '<' && L[i + 1] == '-' && L[i + 2] == '-' && L[i + 3] == '<' && L[i + 4] == '<')
+            Sum++;
+    }
+    cout << Sum;
+    return 0;
+}
+
+3)
+#include <iostream>
+#include<string>
+using namespace std;
+
+void upperCase(string& s) {
+    for (int i = 0; i < s.length(); i++) {
+        s[i] = toupper(s[i]);
+    }
+}
+
+void sort(string& s) {
+    for (int i = 0; i < s.length(); i++) {
+        for (int j = 0; j < s.length() - 1; j++) {
+            if (s[j] > s[j + 1]) {
+                swap(s[j], s[j + 1]);
+            }
+        }
+    }
+}
+
+int main()
+{
+    string a, b;
+    cout << "Input:";
+    cin >> a >> b;
+    upperCase(a);
+    upperCase(b);
+    sort(a);
+    sort(b);
+    if (a.compare(b) == 0) {
+        cout << "YES";
+    }
+    else cout << "NO";
+}
+
+4)
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main(){
+    int a, b;
+    string s, s1;
+    cout << "Input: ";
+    cin >> s >> s1;
+    a = 0; b = 0;
+    for (int i = 0; i < s.length(); i++)
+        for (int j = 0; j < s1.length(); j++)
+        {
+            if (s[i] == s1[j] && i == j) a++;
+            if (s[i] == s1[j] && i != j) b++;
+        }
+    cout << a << " " << b;
+    return 0;
+}
+
+PDF:
+1)
+#include <vcl.h>
+#include <iostream.h>
+#include <conio.h>
+#include <stdio.h>
+#pragma hdrstop
+#pragma argsused
+int main(int argc, char* argv[]){
+    FILE* RF, * WF;
+    char Bufer[7];
+    int A, B, C;
+
+    if ((RF = fopen("Input.txt", "r")) == NULL){
+        cout << "Ne mogu otkrit file Input.txt.";
+        getch();
+        return 1;
+    }
+    if ((WF = fopen("Output.txt", "w")) == NULL){
+        cout << "Ne mogu otkrit file Output.txt.";
+        getch();
+        return 1;
+    }
+    fgets(Bufer, 7, RF);
+    A = atoi(Bufer);
+    cout << "A=" << A << endl;
+    fgets(Bufer, 7, RF);
+    B = atoi(Bufer);
+    cout << "B=" << B << endl;
+
+    C = A - B;
+    fprintf(WF, "%d", C);
+
+    fclose(RF);
+    fclose(WF);
+    getch();
+    return 0;
+}

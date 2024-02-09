@@ -1,0 +1,433 @@
+1)
+3
+Shymbulak Almaty 4
+Adil 14500 NO
+Medet 22000 YES
+Arailym 17800 NO
+Madi 45000 NO
+
+Kaspiy Aktau 2
+Zhanerke 25000 NO
+Dias 33000 YES
+
+Burabai Kokshetau 3
+Zhansaya 34000 NO
+Sanzhar 19000 YES
+Damir 34000 NO
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct Tourist {
+	string name;
+	double incomeMoney;
+	string discount;
+};
+
+struct ResortPlace {
+	string title;
+	string city;
+	int touristCount;
+	Tourist* tourists;
+};
+void sort(ResortPlace resorts) {
+	for (int i = 0; i < resorts.touristCount; i++) {
+		for (int j = 0; j < resorts.touristCount - 1; j++) {
+			int total1 = resorts.tourists[j].incomeMoney;
+			int total2 = resorts.tourists[j + 1].incomeMoney;
+			string name1 = resorts.tourists[j].name;
+			string name2 = resorts.tourists[j + 1].name;
+
+			if (total1 < total2) {
+				swap(resorts.tourists[j], resorts.tourists[j + 1]);
+			}
+			else if (total1 = total2) {
+				if ((name1.compare(name2)) == 1) {
+					swap(resorts.tourists[j], resorts.tourists[j + 1]);
+				}
+			}
+		}
+	}
+}
+
+
+int sum(ResortPlace resorts, int sums) {
+	for (int i = 0; i < resorts.touristCount; i++) {
+		if (resorts.tourists[i].incomeMoney < 20000)
+			sums++;
+	}
+	return sums;
+}
+
+float avg(ResortPlace resorts, float average){
+	int summa = 0;
+	average = 0;
+	for (int i = 0; i < resorts.touristCount; i++){
+		summa += resorts.tourists[i].incomeMoney;
+	}
+	average = float(summa / resorts.touristCount);
+	return average;
+}
+
+int main() {
+	int n;
+	cin >> n;
+
+	ResortPlace* resorts = new ResortPlace[n];
+
+	for (int i = 0; i < n; i++) {
+		cin >> resorts[i].title >> resorts[i].city >> resorts[i].touristCount;
+		resorts[i].tourists = new Tourist[resorts[i].touristCount];
+		for (int j = 0; j < resorts[i].touristCount; j++) {
+			cin >> resorts[i].tourists[j].name;
+			cin >> resorts[i].tourists[j].incomeMoney;
+			cin >> resorts[i].tourists[j].discount;
+		}
+	}
+	cout << endl;
+
+	cout << "ALL INFO:" << endl;
+
+
+	for (int i = 0; i < n; i++){
+		sort(resorts[i]);
+	}
+
+	for (int i = 0; i < n; i++) {
+			cout << "RESORT PLACE:" << resorts[i].title << ", CITY:" << resorts[i].city << endl;
+			cout << "-----------------------" << endl;
+			for (int j = 0; j < resorts[i].touristCount; j++) {
+				cout << j + 1 << ": " << resorts[i].tourists[j].name << " " << resorts[i].tourists[j].incomeMoney << " " << resorts[i].tourists[j].discount << endl;
+			}
+		
+	}
+	cout << endl;
+
+	int sums = 0;
+	cout << "-----------------------" << endl;
+	cout << "NUMBER OF TOURISTS WHO HAS LESS THAN 20,000 tenge:" << endl;
+	for (int i = 0; i < n; i++){
+		cout << resorts[i].title << ": " << sum(resorts[i], sums) << endl;
+	}
+
+	int average = 0;
+	cout << "----------------------" << endl;
+	cout << "AVERAGE:" << endl;
+	for (int i = 0; i < n; i++) {
+		cout << resorts[i].title << ": " << avg(resorts[i], average) << endl;
+	}
+
+	for (int i = 0; i < n; i++) {
+		delete[]resorts[i].tourists;
+	}
+	delete[]resorts;
+}
+
+
+
+2)
+2
+ALMATY 2
+KZPharma 3
+Adderall 2000 YES
+Clonazepam 3200 NO
+Lexapro 950 YES
+
+Evalar 2
+Xanax 5600 NO
+Pantoprazole 1800 YES
+
+
+ASTANA 2
+EuroPharma 4
+Gabapentin 7400 NO
+Cymbalta 1600 YES
+Tramadol 450 YES
+Azithromycin 780 NO
+
+Health 2
+Ritalin 1200 YES
+Methadone 9800 YES
+
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct Drug {
+	string name;
+	int price;
+	string outOfdata;
+};
+
+struct Pharmacy {
+	string name;
+	int countOfDrugs;
+	Drug* drugs;
+};
+
+struct City {
+	string name;
+	int countOfPharmacy;
+	Pharmacy* pharmacy;
+};
+
+void max(Pharmacy pharmacy, int index){
+	int max = pharmacy.drugs[0].price;
+	for (int j = 1; j < pharmacy.countOfDrugs; j++){
+		if (pharmacy.drugs[j].price > max){
+			max = pharmacy.drugs[j].price;
+			index = j;
+		}
+	}
+}
+
+void maxinCity(City city, int index1, int index2){
+	int max = city.pharmacy[0].drugs[0].price;
+	for (int i = 0; i < city.countOfPharmacy; i++){
+		for (int j = 0; j < city.pharmacy[i].countOfDrugs; j++){
+			if (city.pharmacy[i].drugs[j].price > max){
+				max = city.pharmacy[i].drugs[j].price;
+				index1 = i;
+				index2 = j;
+			}
+		}
+	}
+}
+
+
+int main() {
+	int n;
+	cin >> n;
+
+	City* cities = new City[n];
+
+	for (int i = 0; i < n; i++) {
+		cin >> cities[i].name >> cities[i].countOfPharmacy;
+		cities[i].pharmacy = new Pharmacy[cities[i].countOfPharmacy];
+		for (int j = 0; j < cities[i].countOfPharmacy; j++) {
+			cin >> cities[i].pharmacy[j].name;
+			cin >> cities[i].pharmacy[j].countOfDrugs;
+			cities[i].pharmacy[j].drugs = new Drug[cities[i].pharmacy[j].countOfDrugs];
+			for (int k = 0; k < cities[i].pharmacy[j].countOfDrugs; k++) {
+				cin >> cities[i].pharmacy[j].drugs[k].name;
+				cin >> cities[i].pharmacy[j].drugs[k].price;
+				cin >> cities[i].pharmacy[j].drugs[k].outOfdata;
+			}
+		}
+	}
+	cout << endl;
+
+	int index = 0;
+	for (int i = 0; i < n; i++) {
+		cout << "CITY: " << cities[i].name << endl;
+		for (int j = 0; j < cities[i].countOfPharmacy; j++) {
+			max(cities[i].pharmacy[j], index);
+			cout << "THE MOST EXPENSIVE DRUG IN " << cities[i].pharmacy[j].name << " IS " << cities[i].pharmacy[j].drugs[index].name << endl;
+		}
+	}
+	cout << endl;
+
+	int index1 = 0;
+	int index2 = 0;
+
+	for (int i = 0; i < n; i++){
+		maxinCity(cities[i], index1, index2);
+		cout << "THE MOST EXPENSIVE DRUG IN " << cities[i].name << ": " << cities[i].pharmacy[index1].drugs[index2].name << endl;
+	}
+
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < cities[i].countOfPharmacy; j++) {
+			delete[]cities[i].pharmacy[j].drugs;
+		}
+	}
+	for (int i = 0; i < n; i++) {
+		delete[]cities[i].pharmacy;
+	}
+	delete[]cities;
+	return 0;
+}
+
+
+
+
+3)
+3
+Lumiera 3
+
+Duedate
+2200 20:20
+HarryPotter
+1800 20:40
+Ironman
+1900 16:30
+
+Yesentay 2
+Homealone
+1600 23:30
+Intouchables
+2200 18:00
+
+Globus 2
+Ironman
+3000 15:00
+HarryPotter
+1500 21:30
+
+20:00
+
+
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct Movie {
+	string name;
+	int price;
+	string time;
+};
+
+struct Cinema {
+	string name;
+	int movienum;
+	Movie* movies;
+};
+
+void sort(Cinema cinemas) {
+	for (int i = 0; i < cinemas.movienum; i++) {
+		for (int j = 0; j < cinemas.movienum - 1; j++) {
+			int total1 = cinemas.movies[j].price;
+			int total2 = cinemas.movies[j+1].price;
+
+			if (total1 > total2) {
+				swap(cinemas.movies[j], cinemas.movies[j + 1]);
+			}
+		}
+
+	}
+}
+
+int main() {
+	int n;
+	cin >> n;
+
+	Cinema* cinemas = new Cinema[n];
+
+	for (int i = 0; i < n; i++) {
+		cin >> cinemas[i].name >> cinemas[i].movienum;
+		cinemas[i].movies = new Movie[cinemas[i].movienum];
+		for (int j = 0; j < cinemas[i].movienum; j++) {
+			cin >> cinemas[i].movies[j].name;
+			cin >> cinemas[i].movies[j].price;
+			cin >> cinemas[i].movies[j].time;
+		}
+	}
+	cout << endl;
+	
+	string time;
+	cin >> time;
+	cout << endl <<  "OUTPUT:" << endl;
+
+	for (int i = 0; i < n; i++)
+	{
+		sort(cinemas[i]);
+	}
+
+	for (int i = 0; i < n; i++){
+		cout  << cinemas[i].name << ": " << endl;
+		for (int j = 0; j < cinemas[i].movienum; j++){
+			if ((cinemas[i].movies[j].time[0] - 48) * 1000 + (cinemas[i].movies[j].time[1] - 48) * 100 +
+				(cinemas[i].movies[j].time[3] - 48) * 10 + (cinemas[i].movies[j].time[4] - 48) * 1 >
+				(time[0] - 48) * 1000 + (time[1] - 48) * 100 + (time[3] - 48) * 10 + (time[4] - 48) * 1){
+				cout << cinemas[i].movies[j].name << " " << cinemas[i].movies[j].price << " " << cinemas[i].movies[j].time << endl;
+			}
+		}
+		cout << endl;
+	}
+	
+
+	
+	for (int i = 0; i < n; i++) {
+		delete[]cinemas[i].movies;
+	}
+	delete[]cinemas;
+	return 0;
+}
+
+
+
+
+
+4)
+3
+Manchester 2
+Ronaldo Portugal 3
+Rooney England 2 
+
+Everton 2
+Rooney England 3
+Barkley England 2 
+
+RMadrid 2
+Pepe Portugal 3
+Bale Wales 4 
+
+Portugal
+
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct Player {
+	string name;
+	string country;
+	int clubsCount;
+};
+
+struct Club {
+	string name;
+	int playerCount;
+	Player* players;
+};
+
+int main() {
+	int n;
+	cin >> n;
+
+	Club* clubs = new Club[n];
+
+	for (int i = 0; i < n; i++) {
+		cin >> clubs[i].name >> clubs[i].playerCount;
+		clubs[i].players = new Player[clubs[i].playerCount];
+		for (int j = 0; j < clubs[i].playerCount; j++) {
+			cin >> clubs[i].players[j].name;
+			cin >> clubs[i].players[j].country;
+			cin >> clubs[i].players[j].clubsCount;
+		}
+	}
+
+	string country;
+	cin >> country;
+	cout << endl << "OUTPUT:" << endl;
+
+	for (int i = 0; i < n; i++){
+		for (int j = 0; j < clubs[i].playerCount; j++){
+			if (clubs[i].players[j].country == country){
+				cout << clubs[i].name << " " << endl;
+			}
+		}
+	}
+	
+	for (int i = 0; i < n; i++) {
+		delete[]clubs[i].players;
+	}
+	delete[]clubs;
+	return 0;
+}

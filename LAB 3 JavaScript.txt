@@ -1,0 +1,617 @@
+if 26
+
+function func(x){
+    if(x<=0){
+        return -x;
+    }
+    else if((0<x) && (x<2)){
+        return x*x;
+    }
+    else{
+        return 4;
+    }
+}
+
+console.log(func(1))
+
+
+
+if 27
+
+function func(x){
+    let f
+    if(x<0){
+        f = 0;
+    }
+    else if((x%2)==0){
+        f = 1;
+    }
+    else{
+        f = -1;
+    }
+    return f;
+}
+
+console.log(func(1))
+
+
+
+if 28
+
+function func(x){
+    let days
+    if((x%400==0) || (x%4==0) && (x%100!=0)){
+        days = 366;
+    }
+    else{
+        days = 365;
+    }
+    
+    return days;
+}
+
+console.log(func(2000))
+
+
+
+if 29
+
+function func(x){
+    let a
+    let b
+    if(x==0){
+        return "null";
+    }
+    else{
+        if(x<0){
+            a = "negative ";
+        }
+        else if(x>0){
+            a = "positive ";
+        }
+        if(x%2==0){
+            b = "even number";
+        }
+        else{
+            b = "odd number";
+        }
+        return a+b;
+    }
+}
+
+console.log(func(5))
+
+
+
+if 30 
+
+function func(x){
+    let a
+    let b
+    
+    if(x%2==0){
+        a = "even ";
+    }
+    else{
+        a = "odd ";
+    }
+    
+    if(((x/100)>0) && ((x/100)<10)){
+        b = "three-digit number";
+    }
+    else if(((x/10)>0) && ((x/10)<10)){
+        b = "two-digit number";
+    }
+    else if((x/10)==0){
+        b = "one-digit number";
+    }
+    
+    return a+b;
+}
+
+console.log(func(9))
+
+
+
+case 16
+
+function func(x){
+    let a
+    let b
+    
+    switch(x / 10){
+        case 2:
+           a = "twenty"; 
+           break;
+        case 3:
+            a = "thirty";
+            break;
+        case 4:
+            a = "fourty";
+            break;
+        case 5:
+            a = "fifty";
+            break;
+        case 6:
+            a = "sixty";
+            break;
+    }
+    
+    switch(x % 10){
+        case 1:
+            b = "one";
+            break;
+        case 2:
+            b = "two";
+            break;
+        case 3:
+            b = "three";
+            break;
+        case 4:
+            b = "four";
+            break;
+        case 5:
+            b = "five";
+            break;
+        case 6: 
+            b = "six";
+            break;
+        case 7:
+            b = "seven";
+            break;
+        case 8:
+            b = "eight";
+            break;
+        case 9:
+            b = "nine";
+            break;
+    }
+    return a + " " + b + " year"
+    }
+console.log(func(69))
+
+
+
+case 17
+
+function func(x){
+    let a;
+    let b;
+    let c;
+    let d;
+    
+    if(x / 10 == 1){
+        switch(x){
+            case 10:
+                a = "десять учебных заведений";
+                break;
+            case 11:
+                a = "одинадцать учебных заведений";
+                break;
+            case 12:
+                a = "двенадцать учебных заданий";
+                break;
+            case 13:
+                a = "тринадцать учебных заданий";
+                break;
+            case 14:
+                a = "четырнадцать учебных заданий";
+                break;
+            case 15:
+                a = "пятнадцать учебных заданий";
+                break;
+            case 16:
+                a = "шестнадцать учебных заданий";
+                break;
+            case 17:
+                a = "семнадцать учебных заданий";
+                break;
+            case 18:
+                a = "восемнадцать учебных заданий";
+                break;
+            case 19:
+                a = "девятнадцать учебных заданий";
+                break;
+        }
+     return a;   
+    }
+    else{
+        switch(x / 10){
+            case 2:
+                b = "двадцать";
+                break;
+            case 3:
+                b = "тридцать";
+            case 4:
+                b = "сорок";
+                break;
+        }
+        
+        switch(x % 10){
+            case 1:
+            c = "одно";
+            break;
+        case 2:
+            c = "два";
+            break;
+        case 3:
+            c = "три";
+            break;
+        case 4:
+            c = "четыре";
+            break;
+        case 5:
+            c = "пять";
+            break;
+        case 6: 
+            c = "шесть";
+            break;
+        case 7:
+            c = "семь";
+            break;
+        case 8:
+            c = "восемь";
+            break;
+        case 9:
+            c = "девять";
+            break;
+        }
+        
+        switch (x % 10) {
+        case 0:
+        case 5:
+        case 6:
+        case 7:
+        case 8:
+        case 9:
+            d = "учебных заданий.";
+            break;
+        case 1:
+            d = "учебное задание.";
+            break;
+        case 2:
+        case 3:
+        case 4:
+            d = "учебных задания.";
+            break;
+        }
+        
+        return b + " " + c + " " + d;
+    }
+    }
+console.log(func(21))
+
+
+
+case 19
+function func(x){
+    let a;
+    let b;
+    
+    switch(x % 10){
+        case 0:
+    case 1:
+        a = "white";
+        break;
+    case 2:
+    case 3:
+        a = "black";
+        break;
+    case 4:
+    case 5:
+        a = "green";
+        break;
+    case 6:
+    case 7:
+        a = "red";
+        break;
+    case 8:
+    case 9:
+        a = "yellow";
+        break;
+    }
+    
+    switch ((x + 8) % 12) {
+    case 0:
+        b = " rat";
+        break;
+    case 1:
+        b = " cow";
+        break;
+    case 2:
+        b = " tiger";
+        break;
+    case 3:
+        b = " rabbit";
+        break;
+    case 4:
+        b = " dragon";
+        break;
+    case 5:
+        b = " snake";
+        break;
+    case 6:
+        b = " horse";
+        break;
+    case 7:
+        b = " sheep";
+        break;
+    case 8:
+        b = " monkey";
+        break;
+    case 9:
+        b = " chiken";
+        break;
+    case 10:
+        b = " dog";
+        break;
+    case 11:
+        b = " pig";
+        break;
+    }
+    
+    return a + b;
+}
+
+console.log(func(1984))
+
+
+
+case 20
+function func(D,M){
+    let a;
+    let b;
+    let D = 15;
+    let M = 3;
+    
+    
+    switch (M) {
+	case 1:
+		if (D > 19)
+		    return "Aquarius";
+		else
+			return "Capricorn";
+		break;
+	case 2:
+		if (D > 18)
+			return "Fish";
+		else
+			return "Aquarius";
+		break;
+	case 3:
+		if (D > 20)
+			return "Aries";
+		else
+			return "Fish";
+		break;
+	case 4:
+		if (D > 19)
+			return "Taurus";
+		else
+			return "Aries";
+		break;
+	case 5:
+		if (D > 20)
+			return "Twins";
+		else
+			return "Taurus";
+		break;
+	case 6:
+		if (D > 21)
+			return "Cancer";
+		else
+			return "Twins";
+		break;
+	case 7:
+		if (D > 22)
+			return "Lion";
+		else
+			return "Cancer";
+		break;
+	case 8:
+		if (D > 22)
+			return "Maid";
+		else
+			return "Lion";
+		break;
+	case 9:
+		if (D > 22)
+			return "Scales";
+		else
+			return "Maid";
+		break;
+	case 10:
+		if (D > 22)
+			return "Scorpion";
+		else
+			return "Scales";
+		break;
+	case 11:
+		if (D > 22)
+			return "Sagittarius";
+		else
+			return "Scorpion";
+		break;
+	case 12:
+		if (D > 21)
+			return "Capricorn";
+		else
+			return "Sagittarius";
+		break;
+}
+
+console.log(func(15,03)
+
+
+
+for 36
+
+function func(x){
+    let n = 5;
+    let k = 3;
+    let i;
+    let j;
+    let temp = 0;
+    let power = 1;
+    
+    for(i = 1; i <= n; ++i){
+        for(j = 1; j <= k; ++j){
+            power *= i;
+        }
+        temp += power;
+        power = 1;
+    }
+    
+    return temp; 
+}
+
+
+for 37
+
+function func(x){
+    let n = 5;
+    let i;
+    let j;
+    let temp = 0;
+    let power = 1;
+    
+    for(i = 1; i <= n; ++i){
+        for(j = 1; j <= i; ++j){
+            power *= i;
+        }
+        temp += power;
+        power = 1;
+    }
+    return temp;
+}
+
+
+
+for 38 
+
+function func(x){
+    let n = 5;
+    let m;
+    let i;
+    let j;
+    let temp = 0;
+    let power = 1;
+    
+    for(i = 1; i<=n; ++i){
+        power = 1;
+        for(j = 1;j<=n-i; ++j){
+            power *= i;
+        }
+    temp += power;
+    }
+    return temp;
+}
+
+
+
+
+for 39
+
+let a = 3;
+    let b = 5;
+    let i;
+    let j;
+    
+    for (i = a; i <= b; ++i) {
+        for (j = 1; j <= i; ++j)
+            console.log(i + " ")
+    }
+
+
+for 40
+
+    let a = 3;
+    let b = 5;
+    let i;
+    let j;
+    
+    for (i = 1; i <= b - a + 1; i++) {
+        for (j = 1; j <= i; j++){
+            console.log((a + i - 1) + " ");
+        }
+    }
+
+
+
+
+while 26
+
+function func(n){
+    let f1=1
+    let f2=1
+    let f=0
+    while(f<n+1){
+        f=f2+f1
+        f2=f1
+        f1=f
+    }
+    return f1, f2;
+}
+
+console.log(func(5))
+
+
+
+while 27
+
+function func(n){
+    let f1=1
+    let f2=1
+    let f=0
+    while(f<n){
+        f=f2+f1
+        f2=f1
+        f1=f
+
+    }
+    return f1+f2
+}
+
+
+
+while 28
+
+function func(x){
+    let f1=0;
+    let f=2;
+    let k=1;
+    while (Math.abs(f-f1)>=x) {
+        ++k;
+        f1=f;
+        f=2+1/f1;
+    }
+    return f
+}
+
+console.log(func(5))
+
+
+
+
+while 29
+
+
+
+
+while 30
+
+function func(a , b , c){
+    let k = 0;
+    let temp;
+    while ((a - c) >= 0) {
+        a -= c;
+        temp = b;
+        while (temp - c >= 0) {
+            temp -= c;
+            ++k;
+        }
+    }
+    return k; 
+}
+
+console.log(func(5 , 3 , 2))

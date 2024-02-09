@@ -1,0 +1,207 @@
+Task 1
+
+const kazakhstan = ['Kazakhstan', 19000000, 'Astana', 'kazakh'];
+const russia = ['Russia', 145000000, 'Moscow', 'russian'];
+const china = ['China', 1441000000, 'Pekin', 'chinese'];
+const ukraine = ['Ukraine', 44000000, 'Kyiv', 'ukrainian'];
+
+let populations = [kazakhstan, russia, china, ukraine];
+
+if(populations.length == 4){
+    console.log('true');
+}
+else{
+    console.log('false');
+}
+
+let percentageOfWorld = (population) => {
+    let percentage;
+    percentage = ((population/7900000000)*100).toFixed(2);
+    return percentage;
+}
+
+let percentages = new Array();
+
+percentages[0] = percentageOfWorld(kazakhstan[1]);
+percentages[1] = percentageOfWorld(russia[1]);
+percentages[2] = percentageOfWorld(china[1]);
+percentages[3] = percentageOfWorld(ukraine[1]);
+
+console.log(percentages);
+ 
+
+
+Task 2
+
+let neighbours = ['Russia', 'China', 'Kirgizstan', 'Ozbekistan', 'Turkmenistan'];
+
+
+neighbours.push('Utopia');
+console.log(neighbours);
+
+
+neighbours.pop();
+console.log(neighbours);
+
+
+if(neighbours.includes('Germany')){
+}
+else{
+    console.log('Probably not a central European country.');
+}
+
+
+neighbours.splice(2, 1, 'Republic of Kirgizstan');
+console.log(neighbours);
+
+
+
+
+Task 3
+
+let neighbours = ['Russia', 'China', 'Kirgizstan', 'Ozbekistan', 'Turkmenistan'];
+
+let myCountry = ['Kazakhstan', 'Astana', 'kazakh', 19000000, neighbours];
+console.log(myCountry);
+
+
+
+Task 4
+
+let neighbours = ['Russia', 'China', 'Kirgizstan', 'Ozbekistan', 'Turkmenistan'];
+
+let myCountry = ['Kazakhstan', 'Astana', 'kazakh', 19000000, neighbours];
+console.log(`${myCountry[0]} has ${myCountry[3]} ${myCountry[2]}-speaking people, ${neighbours.length} neighbouring countries and a capital called ${myCountry[1]}`);
+
+
+myCountry.splice(3, 1, 21000000);
+console.log(myCountry[3]);
+
+
+
+
+Task 5
+
+let neighbours = ['Russia', 'China', 'Kirgizstan', 'Ozbekistan', 'Turkmenistan'];
+let myCountry = ['Kazakhstan', 'Astana', 'kazakh', 19000000, neighbours];
+
+const describe = (country) => {
+    console.log(`This ${country[0]} has ${country[3]} ${country[2]}-speaking people, ${country[4].length} neighbouring countries and a capital called ${country[1]}`);
+}
+
+console.log(describe(myCountry));
+
+
+function checkIsland(country){
+    let result;
+    country[4].length>0 ? result = "Not island" : result = "island";
+    return result;
+}
+
+console.log(checkIsland(myCountry));
+
+
+
+
+Task 6
+
+for(let i = 1; i <= 50; i++){
+    console.log(`Voter number ${i} is currently voting`)
+}
+
+
+
+Task 7
+
+let percentageOfWorld = (population) => {
+    let percentage;
+    percentage = ((population/7900000000)*100).toFixed(2);
+    return percentage;
+}
+
+const kazakhstan = ['Kazakhstan', 19000000, 'Astana', 'kazakh'];
+const russia = ['Russia', 145000000, 'Moscow', 'russian'];
+const china = ['China', 1441000000, 'Pekin', 'chinese'];
+const ukraine = ['Ukraine', 44000000, 'Kyiv', 'ukrainian'];
+let populations = [kazakhstan, russia, china, ukraine];
+
+let percentages = new Array();
+percentages[0] = percentageOfWorld(kazakhstan[1]);
+percentages[1] = percentageOfWorld(russia[1]);
+percentages[2] = percentageOfWorld(china[1]);
+percentages[3] = percentageOfWorld(ukraine[1]);
+
+let percentages2 = new Array();
+for(let i = 0; i < 4; i++){
+    percentages2[i] = percentageOfWorld(populations[i][1]);
+    console.log(percentages2[i] + " and " + percentages[i]);
+}
+
+
+
+
+Task 8
+
+let country1 = ['Canada', 'Mexico'];
+let country2 = ['Spain'];
+let country3 = ['Norway', 'Sweden', 'Kazakhstan'];
+
+let listOfNeighbours = [country1, country2, country3];
+
+for(let i = 0; i < listOfNeighbours.length; i++){
+    for(let j = 0; j < listOfNeighbours[i].length; j++){
+        console.log("Country" + `${i+1}` + "'s neighbour: " + listOfNeighbours[i][j]);
+    }
+}
+
+
+Task 9
+
+const nurs = ['Arman', 'Halykov', 2037 - 1991, 'teacher', ['Sanzhar', 'Aibat', 'Salamat'], true];
+
+let i = 0;
+while(0 < nurs.length){
+    if(typeof nurs[i] !== 'string'){
+        continue;
+    }
+    console.log(nurs[i], typeof nurs[i]);
+    i++;
+}
+
+let j = 0;
+while(0 < nurs.length){
+    if(typeof nurs[j] === 'number'){
+        break;
+    }
+    console.log(nurs[j], typeof nurs[j]);
+    j++;
+}
+
+
+
+
+Task 10
+
+let calcAverage = (team) => {
+    let averege = (team[0] + team[1] + team[2])/3;
+    return averege;
+}
+
+let checkWinner = (team1, team2) => {
+
+    if(calcAverage(team1) >= 2 * calcAverage(team2)){
+        console.log(`${team1[3]} win (${calcAverage(team1)} vs. ${calcAverage(team2)})`)
+    }
+    else if(calcAverage(team2) >= 2 * calcAverage(team1)){
+        console.log(`${team2[3]} win (${calcAverage(team2)} vs. ${calcAverage(team1)})`)
+    }
+}
+
+const Yesyl = [44, 23, 71, 'Yesyl'];
+const Yertys = [65, 54, 49, 'Yertys'];
+checkWinner(Yesyl, Yertys);
+
+const Yesyl2 = [85, 54, 41, 'Yesyl'];
+const Yertys2 = [23, 34, 27, 'Yertys'];
+checkWinner(Yesyl2, Yertys2);
+

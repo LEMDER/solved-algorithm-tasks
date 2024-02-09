@@ -1,0 +1,562 @@
+Boolean 1)
+
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main()
+{
+	int a;
+	cin >> a;
+	if (a > 0) {
+		cout << "True" << endl;
+	}
+	else {
+		cout << "False" << endl;
+	}
+}
+
+
+Boolean 6)
+
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main()
+{
+	int a ,b, c;
+	cin >> a >> b >> c;
+	if (c>b && b>a) {
+		cout << "True" << endl;
+	}
+	else {
+		cout << "False" << endl;
+	}
+}
+
+Boolean 9)
+
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main()
+{
+	int a, b;
+	cin >> a >> b;
+
+	if (a % 2 == 0 || b % 2 == 0) {
+		cout << "True";
+	}
+	else {
+		cout << "False";
+	}
+}
+
+Boolean 11)
+
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main()
+{
+	int a, b;
+	cin >> a >> b;
+
+	if (a % 2 == 0 && b % 2 == 0 || a % 2 != 0 && b % 2 != 0) {
+		cout << "True";
+	}
+	else {
+		cout << "False";
+	}
+}
+
+Boolean 12)
+
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main()
+{
+	int a, b , c;
+	cin >> a >> b >>c;
+
+	if (a > 0 && b > 0 && c > 0) {
+		cout << "True";
+	}
+	else {
+		cout << "False";
+	}
+}
+
+Boolean 13)
+
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main()
+{
+	int a, b , c;
+	cin >> a >> b >>c;
+
+	if (a > 0 || b > 0 || c > 0) {
+		cout << "True";
+	}
+	else {
+		cout << "False";
+	}
+}
+
+Boolean 14)
+
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main()
+{
+	int a, b , c;
+	cin >> a >> b >>c;
+
+	if (a > 0 && b <= 0 && c <= 0 || a <= 0 && b > 0 && c <= 0 || a <= 0 && b <= 0 && c > 0) {
+		cout << "True";
+	}
+	else {
+		cout << "False";
+	}
+}
+
+Boolean 17)
+
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main()
+{
+	int a;
+	cin >> a;
+
+	if (a % 2 != 0 && a > 99 && a < 1000) {
+		cout << "True";
+	}
+	else {
+		cout << "False";
+	}
+}
+
+Boolean 18)
+
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main()
+{
+	int a, b, c;
+	cin >> a >> b >> c;
+
+	if (a == b || a == c || b == c){
+		cout << "True";
+	}
+	else {
+		cout << "False";
+	}
+}
+
+Boolean 19)
+
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main()
+{
+	int a, b, c;
+	cin >> a >> b >> c;
+
+	if ((a == (-1) * b) | (a == (-1) * c) | (b == (-1) * c)) {
+		cout << "True";
+	}
+	else {
+		cout << "False";
+	}
+}
+
+Boolean 36)
+
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main()
+{
+	int x1, y1, x2, y2;
+	cin >> x1 >> y1 >> x2 >> y2;
+
+	if (x1 == x2 || y1 == y2) {
+		cout << "True";
+	}
+	else {
+		cout << "False";
+	}
+}
+
+Boolean 37)
+
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main()
+{
+	int x1, y1, x2, y2;
+	cin >> x1 >> y1 >> x2 >> y2;
+
+	if (abs(x1 - x2) <= 1 && abs(y1 - y2) <= 1) {
+		cout << "True";
+	}
+	else {
+		cout << "False";
+	}
+}
+
+Boolean 38)
+
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main()
+{
+	int x1, y1, x2, y2;
+	cin >> x1 >> y1 >> x2 >> y2;
+
+	if (abs(x1 - x2) == abs(y1 - y2) || (x1 == x2) || (y1 == y2)) {
+		cout << "True";
+	}
+	else {
+		cout << "False";
+	}
+}
+
+Boolean 40)
+
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main()
+{
+	int x1, y1, x2, y2;
+	cin >> x1 >> y1 >> x2 >> y2;
+
+	if (abs(x1 - x2) == 1 && abs(y1 - y2) == 2 || abs(x1 - x2) == 2 && abs(y1 - y2) == 1) {
+		cout << "True";
+	}
+	else {
+		cout << "False";
+	}
+}
+
+If 8)
+
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main()
+{
+	int a, b;
+	cin >> a >> b;
+
+	if (a > b)
+		cout << a << ' ' << b;
+	else
+		cout << b << ' ' << a;
+}
+
+If 19)
+
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main()
+{
+	int a, b, c, d ,n;
+	cin >> a >> b >> c >> d;
+
+	if (a == b && b == c) n = 4;
+	else if (a == b && a == d) n = 3;
+	else if (a == c && a == d) n = 2;
+	else if (b == c && b == d) n = 1;
+	
+	cout << "Difference number=" << n << "th" << endl;
+}
+
+If 25)
+
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main()
+{
+	int x;
+	cin >> x;
+	if (x < -2 || x>2) {
+		cout << 2 * x;
+	}
+	else {
+		cout << -3 * x << endl;
+	}
+}
+
+If 28)
+
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main()
+{
+	int a;
+	cin >> a;
+
+	cout << "How many days in this year= " << ((a % 400 == 0 || a % 4 == 0 && a % 100 != 0) ? 366 : 365) << "days";
+}
+
+If 29)
+
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main()
+{
+	int x;
+	cin >> x;
+	if (0<x) {
+		cout << "positive, ";
+	}
+	else {
+		cout << "negative, ";
+	}
+	if (x % 2 != 0) {
+		cout << "odd number, ";
+	}
+	else {
+		cout << "even number, ";
+	}
+	if (x == 0) {
+		cout << "zero number";
+	}
+	else {
+		cout << "non zero number";
+	}
+
+
+}
+
+If 30)
+
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main()
+{
+	int a;
+	cin >> a;
+	
+	if (a % 2 != 0) {
+		cout << "odd number, ";
+	}
+	else {
+		cout << "even number, ";
+	}
+	if (a / 100 > 0 && a / 100 < 10) {
+		cout << "three-digit number";
+	}
+	else if (a / 10 > 0 && a / 10 < 10) {
+		cout << "two-digit number";
+	}
+	else if (a / 10 == 0) {
+		cout << "single digit";
+	}
+}
+
+Case 2)
+
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main()
+{
+	int a;
+	cin >> a;
+	
+	if (a == 1) {
+		cout << "badly";
+	} if (a == 2) {
+		cout << "unsatisfactory";
+	} if (a == 3) {
+		cout << "satisfactorily";
+	} if (a == 4) {
+		cout << "well";
+	} if (a == 5) {
+		cout << "fine";
+	} if (a > 1 || 5 < a) {
+		cout << "ERROR";
+	}
+}
+
+Case 15)
+
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main()
+{
+	int N, M;
+	cin >> N >> M;
+
+    switch (N) {
+    case 6:
+        cout << "six ";
+        break;
+    case 7:
+        cout << "seven ";
+        break;
+    case 8:
+        cout << "eight ";
+        break;
+    case 9:
+        cout << "nine ";
+        break;
+    case 10:
+        cout << "ten ";
+        break;
+    case 11:
+        cout << "Jack ";
+        break;
+    case 12:
+        cout << "Queen ";
+        break;
+    case 13:
+        cout << "King ";
+        break;
+    case 14:
+        cout << "Ace ";
+        break;
+    }
+
+    switch (M) {
+    case 1:
+        cout << "Spades";
+        break;
+    case 2:
+        cout << "Clubs";
+        break;
+    case 3:
+        cout << "Diamonds";
+        break;
+    case 4:
+        cout << "Hearts";
+        break;
+    }
+}
+
+Case 20)
+
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main()
+{
+	int D, M;
+	cin >> D >> M;
+
+	switch (M) {
+	case 1:
+		if (D > 19)
+			cout << "Aquarius";
+		else
+			cout << "Capricorn";
+		break;
+	case 2:
+		if (D > 18)
+			cout << "Fish";
+		else
+			cout << "Aquarius";
+		break;
+	case 3:
+		if (D > 20)
+			cout << "Aries";
+		else
+			cout << "Fish";
+		break;
+	case 4:
+		if (D > 19)
+			cout << "Taurus";
+		else
+			cout << "Aries";
+		break;
+	case 5:
+		if (D > 20)
+			cout << "Twins";
+		else
+			cout << "Taurus";
+		break;
+	case 6:
+		if (D > 21)
+			cout << "Cancer";
+		else
+			cout << "Twins";
+		break;
+	case 7:
+		if (D > 22)
+			cout << "Lion";
+		else
+			cout << "Cancer";
+		break;
+	case 8:
+		if (D > 22)
+			cout << "Maid";
+		else
+			cout << "Lion";
+		break;
+	case 9:
+		if (D > 22)
+			cout << "Scales";
+		else
+			cout << "Maid";
+		break;
+	case 10:
+		if (D > 22)
+			cout << "Scorpion";
+		else
+			cout << "Scales";
+		break;
+	case 11:
+		if (D > 22)
+			cout << "Sagittarius";
+		else
+			cout << "Scorpion";
+		break;
+	case 12:
+		if (D > 21)
+			cout << "Capricorn";
+		else
+			cout << "Sagittarius";
+		break;
+	}
+}

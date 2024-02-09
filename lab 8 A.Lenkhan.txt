@@ -1,0 +1,246 @@
+1)
+#include <iostream>
+using namespace std;
+
+struct footballer {
+    string name;
+    string surname;
+    string amplua;
+    int games;
+    int goals;
+
+};
+int main(){
+    footballer* players = new footballer[5];
+    for (int i = 0; i < 5; i++) {
+        cout << "NAME:";
+        cin >> players[i].name;
+        cout << "SURNAME:";
+        cin >> players[i].surname;
+        cout << "AMPLUA:";
+        cin >> players[i].amplua;
+        cout << "SUM OF GAMES:";
+        cin >> players[i].games;
+        cout << "SUM OF GOALS:";
+        cin >> players[i].goals;
+        cout << endl;
+    }
+    int max = players[0].goals;
+    int index = 0;
+    for (int i = 0; i < 5; i++) {
+        if (players[i].amplua == "striker" || players[i].amplua == "Striker") {
+            if (max < players[i].goals) {
+                max = players[i].goals;
+                index = i;
+            }
+        }
+    }
+
+    cout << "BEST STRIKER IS:" << players[index].name << " " << players[index].surname << " " << players[index].amplua << " GOALS:" << players[index].goals << endl;
+    cout << "PLAYERS, THAT HAVE LESS THAN 5 GAMES:" << endl;
+    for (int i = 0; i < 5; i++) {
+        if (players[i].games < 5) {
+            cout << players[i].name << " " << players[i].surname << " " << players[i].amplua << " GAMES:" << players[index].games << endl;
+        }
+    }
+
+    
+    delete[]players;
+    return 0;
+}
+
+
+
+
+2)
+#include <iostream>
+using namespace std;
+
+struct Item {
+    string name;
+    int sum;
+    double price;
+    string manufactur;
+    string data;
+
+};
+int main(){
+    Item* items = new Item[4];
+
+    for (int i = 0; i < 4; i++) {
+        cout << "NAME:";
+        cin >> items[i].name;
+        cout << "SUM:";
+        cin >> items[i].sum;
+        cout << "PRICE:";
+        cin >> items[i].price;
+        cout << "MANUFACTURER:";
+        cin >> items[i].manufactur;
+        cout << "DATA OF ITEM:";
+        cin >> items[i].data;
+        cout << endl;
+    }
+
+    double sred = 0;
+    for (int i = 0; i < 4; i++) {
+        sred += items[i].price;
+    }
+    double sredarif = sred / 4;
+
+    cout << "OUTPUT:" << endl;
+    for (int i = 0; i < 4; i++) {
+        if (items[i].price > sredarif) {
+            cout << items[i].name << " " << items[i].sum << " " << items[i].price << " " << items[i].manufactur << " " << items[i].data << endl;
+        }
+    }
+    
+    delete[]items;
+    return 0;
+}
+
+
+
+
+3)
+#include <iostream>
+using namespace std;
+
+struct Worker {
+    string surname;
+    int age;
+    string education;
+    string position;
+
+};
+int main(){
+    Worker* workers = new Worker[4];
+
+    for (int i = 0; i < 4; i++) {
+        cout << "SURNAME:";
+        cin >> workers[i].surname;
+        cout << "AGE:";
+        cin >> workers[i].age;
+        cout << "EDUCATION:";
+        cin >> workers[i].education;
+        cout << "POSITION:";
+        cin >> workers[i].position;
+        cout << endl;
+    }
+
+    
+    cout << "WORKERS WITHOUT HIGHER EDUCATION AND 30+" << endl;
+    for (int i = 0; i < 4; i++) {
+        if (workers[i].education == "exist" && workers[i].age > 30) {
+            cout << workers[i].surname << " " << workers[i].age << " Education:" << workers[i].education << " Position:" << workers[i].position << endl;
+        }
+    }
+    int sum = 0;
+    for (int i = 0; i < 4; i++) {
+        if (workers[i].position == "Engineer" || workers[i].position == "engineer") {
+            sum++;
+        }
+    }
+    cout << "SUM OF ENGINEERS:" << sum << endl;
+
+    for (int i = 0; i < 4; i++) {
+        if (workers[i].position == "Engineer" || workers[i].position == "engineer") {
+            cout << workers[i].surname << " " << workers[i].age << " Education:" << workers[i].education << " Position:" << workers[i].position << endl;
+        }
+    }
+    
+    delete[]workers;
+    return 0;
+}
+
+
+
+
+4)
+#include <iostream>
+using namespace std;
+
+struct Train {
+    int number;
+    int timeinput;
+    int timeoutput;
+    string fromto;
+    double distance;
+
+};
+int main(){
+    Train* trains = new Train[4];
+
+    for (int i = 0; i < 4; i++) {
+        cout << "NUMBER OF TRAIN:";
+        cin >> trains[i].number;
+        cout << "TIME ARRIVAL:";
+        cin >> trains[i].timeinput;
+        cout << "DEPARTURE TIME:";
+        cin >> trains[i].timeoutput;
+        cout << "DIRECTION:";
+        cin >> trains[i].fromto;
+        cout << "DISTANCE:";
+        cin >> trains[i].distance;
+        cout << endl;
+    }
+
+    
+    
+    for (int i = 0; i < 4; i++) {
+        cout << trains[i].number << " MIDLE VELOCITY:" << trains[i].distance / (trains[i].timeoutput - trains[i].timeinput) << endl;
+    }
+
+    for (int i = 0; i < 4; i++) {
+        if ((trains[i].timeoutput - trains[i].timeinput) > 24) {
+            cout << "TRAIN NUMBER: " << trains[i].number << " " << trains[i].timeinput << "-" << trains[i].timeoutput << " DISTANCE:" << trains[i].distance << endl;
+        }
+    }
+    
+    
+    delete[]trains;
+    return 0;
+}
+
+5)
+#include <iostream>
+using namespace std;
+
+struct Movie {
+    string name;
+    double data;
+    int time;
+    string genre;
+    int budget;
+
+};
+int main(){
+    int n;
+    cin >> n;
+    Movie* films = new Movie[n];
+
+    for (int i = 0; i < n; i++) {
+        cout << "NAME:";
+        cin >> films[i].name;
+        cout << "DATA:";
+        cin >> films[i].data;
+        cout << "TIMING:";
+        cin >> films[i].time;
+        cout << "GENRE:";
+        cin >> films[i].genre;
+        cout << "BUDGET:";
+        cin >> films[i].budget;
+        cout << endl;
+    }
+
+    
+    
+    for (int i = 0; i < n; i++) {
+        if (films[i].data > 18.0 && films[i].time > 100) {
+            cout << films[i].name << " DATA:" << films[i].data << " TIMING:" << films[i].time << "minutes GENRE:" << films[i].genre << " BUDGET:" << films[i].budget << endl;
+        }
+    }
+    
+    
+    delete[]films;
+    return 0;
+}

@@ -1,0 +1,156 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    int binary[1000];
+	int l, p , c, num, bin, i=0;
+	
+	cout << "LOGIN: ";
+	cin >> l;
+	cout << "PASSWORD: ";
+	cin >> p;
+	
+	if(l == 123456 && p == 123456){
+	    cout << "1 - Decimal to binary" << endl << "2 - Decimal to Roman" << endl << "3 - Roman to Deciamal" << endl;
+		cout << "Choose converter:";
+	}
+	
+	else{
+	    cout << "Wrong login or password";
+	}
+	
+    
+	cin >> c;
+	if (c == 1) {
+		cout << "Number:";
+		cin >> num;
+		while(num > 1){
+		    bin = num % 2;
+		    binary[i] = bin;
+		    i++;
+		    num = num / 2;
+		}
+		binary[i] = num;
+		cout << "Binary:";
+		for(int j = i; j >= 0; j--){
+		    cout << binary[j];
+		}
+		
+	}
+	
+	int decimal, M = 0, D = 0, C = 0, L = 0, X = 0, V = 0, I = 0, mid = 0;
+
+	if (c == 2) {
+		cout << "Number:";
+		cin >> decimal;
+		
+		if (decimal <= 0 || decimal > 3999) 
+		cout << "ERROR" << endl;
+        
+         else if (decimal == 3999) 
+         cout << "MMMIM" << endl;
+         else if (decimal == 2999) 
+         cout << "MMIM" << endl;
+         else if (decimal == 1999) 
+         cout << "MIM" << endl;
+    
+    else {
+        mid = decimal;
+ 
+        while (mid >= 1000) {
+            if (mid >= 1000) 
+            M++;
+            mid -= 1000;
+        }
+        mid = decimal - M * 1000;
+        
+        while (mid >= 500) {
+            if (mid >= 500) 
+            D++;
+            mid -= 500;
+        }
+        mid = decimal - M * 1000 - D * 500;
+ 
+        while (mid >= 100) {
+            if (mid >= 100) 
+            C++;
+            mid -= 100;
+        }
+        mid = decimal - M * 1000 - D * 500 - C * 100;
+        
+        while (mid >= 50) {
+            if (mid >= 50) 
+            L++;
+            mid -= 50;
+        }
+        mid = decimal - M * 1000 - D * 500 - C * 100 - L * 50;
+ 
+        while (mid >= 10) {
+            if (mid >= 10) 
+            X++;
+            mid -= 10;
+        }
+        mid = decimal - M * 1000 - D * 500 - C * 100 - L * 50 - X * 10;
+        
+        while (mid >= 5) {
+            if (mid >= 5) 
+            V++;
+            mid -= 5;
+        }
+        mid = decimal - M * 1000 - D * 500 - C * 100 - L * 50 - X * 10 - V * 5;
+ 
+        while (mid >= 1) {
+            if (mid >= 1) 
+            I++;
+            mid -= 1;
+        }
+ 
+        for (i = 1; i <= M; i++) 
+        cout << "M";
+        if (D == 1 && C == 4) 
+        cout << "CM";
+        else if (D == 0 && C == 4) 
+        cout << "CD";
+        else {
+            for (i = 1; i <= D; i++) 
+            cout << "D";
+            for (i = 1; i <= C; i++) 
+            cout << "C";
+        }
+        if (L == 1 && X == 4) 
+        cout << "XC";
+        else if (L == 0 && X == 4) 
+        cout << "XL";
+        else {
+            for (i = 1; i <= L; i++) 
+            cout << "L";
+            for (i = 1; i <= X; i++) 
+            cout << "X";
+        }
+        if (V == 1 && I == 4) 
+        cout << "IX";
+        else {
+            for (i = 1; i <= V; i++) 
+            cout << "V";
+            if (I == 4) cout << "IV";
+            else for (i = 1; i <= I; i++) 
+            cout << "I";
+        }
+         
+          cout << endl << endl;
+ 
+        }
+	}
+	int roman;
+	if(c == 3){
+	    cout << "I could't did it :( ";
+	    // cin >> roman
+	    
+	}
+	
+	if(c < 1 || c > 3){
+	    cout << "ERROR FUNCTION TO CONVERTATION";
+	}
+	return 0;
+}

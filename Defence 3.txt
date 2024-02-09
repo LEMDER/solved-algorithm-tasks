@@ -1,0 +1,115 @@
+Alisher Lenkhan  IT2-2011
+
+1)
+#include <iostream>
+using namespace std;
+ 
+int main()
+{
+    int N, A=0;
+    cout << "N:";
+    cin >> N;
+    int arr[N];
+ 
+    for (int i = 0; i < N; ++i){
+        cin >> arr[i];
+    }
+    double min = arr[0];
+    
+    for(int i = 0; i < N; i++){
+        if(min > arr[i]){
+            min = arr[i];
+            A=i;
+        }
+    }
+    cout << "Min element + index = " <<  min + A << endl; 
+    
+return 0;
+}
+
+2)
+#include <iostream>
+using namespace std;
+ 
+int main()
+{
+    int N;
+    cout << "N:";
+    cin >> N;
+    int arr[N];
+ 
+    for (int i = 0; i < N; ++i) {
+        cin >> arr[i];
+    }
+    int min = arr[0];
+    for( int i = 0; i < N; ++i){
+        if(arr[i] % 2 == 0){
+            if(min > arr[i]){
+                min = arr[i];
+            }
+        }
+    }
+    cout << "Min enev number = " <<  min << endl; 
+    
+return 0;
+}
+
+3)
+#include <iostream>
+
+using namespace std;
+ 
+int main()
+{
+    int N;
+    cout << "N:";
+    cin >> N;
+    int arr[N];
+    
+     for(int i=0; i<=N - 1; i++){
+       cin >> arr[i];
+    }
+    
+    int max = arr[0];
+    for (int i = 1; i < N; i++) {
+    if (arr[i] > max)
+       max = arr[i];
+    }
+
+    for (int i = 0; i < N; i++) {
+    if (arr[i]%2==0)
+
+    arr[i]=max;
+    }
+
+    for (int i = 0; i < N; i++)
+    cout << " " << arr[i];
+    return 0;
+}
+
+4)
+#include <iostream>
+using namespace std;
+ 
+int main()
+{
+    int N;
+    cout << "N:";
+    cin >> N;
+    int arr[N];
+ 
+    for (int i = 0; i < N; ++i) {
+        cin >> arr[i];
+    }
+    int max = arr[0];
+    for( int i = 0; i < N; ++i){
+        if(arr[i] % 2 == 0){
+            if(max < arr[i]){
+                max = arr[i];
+            }
+        }
+    }
+    cout << "Max enev number = " <<  max << endl; 
+    
+return 0;
+}

@@ -1,0 +1,331 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        BankAccount[] allAccounts = new BankAccount[10];
+        allAccounts[0] = new CityBankAccount("Ilyas", "Zhuanyshev", 56000, "KZ010322312", "0102");
+        allAccounts[1] = new CityBankAccount("Erbol", "Assanbek", 12000, "KZ010322313", "1259");
+        allAccounts[2] = new NationalBankAccount("Ilyas Zhuanyshev", 20051, "KZ0101112", "2001");
+        allAccounts[3] = new NationalBankAccount("Yerkebulan Kyrykbaev", 151860, "KZ0101119", "0489");
+
+        System.out.println("INSERT YOUR ACCOUNT NUMBER:");
+        String accNumber = in.next();
+        System.out.println("INSERT PIN-CODE:");
+        String pincoode = in.next();
+
+        if (accNumber.length() == 11) {
+            for (int i = 0; i < allAccounts.length; i++) {
+                if (accNumber.equals(allAccounts[i].getAccountNumber()) && pincoode.equals(allAccounts[i].getPinCode())) {
+                    while(true) {
+                        System.out.println("PRESS [1] TO CASH WITHDRAWAL"); // снять деньги
+                        System.out.println("PRESS [2] TO VIEW BALANCE");
+                        System.out.println("PRESS [3] TO CHANGE PIN CODE");
+                        System.out.println("PRESS [4] TO CASH IN ACCOUNT");  // добавить деньги в счет
+                        System.out.println("PRESS [5] TO VIEW ACCOUNT DATA"); // просмотр данные счета
+                        System.out.println("PRESS [6] TO EXIT");
+
+                        int choice = in.nextInt();
+
+                        if (choice == 1) {
+                            System.out.println("INSERT SUM:");
+                            int sum = in.nextInt();
+
+                            if (sum > allAccounts[i].totalBalance()) {
+                                System.out.println("THERE ARE NOT ENOUGH FUNDS IN YOUR ACCOUNT");
+                            } else {
+                                allAccounts[i].creditBalance(sum);
+                                System.out.println("TAKE THE MONEY AND CHECK");
+                                System.out.println("YOUR NEW BALANCE:" + allAccounts[i].totalBalance());
+                                System.out.println();
+                            }
+                        }
+                        if (choice == 2) {
+                            System.out.println("BALANCE:" + allAccounts[i].totalBalance());
+                            System.out.println();
+                        }
+                        if (choice == 3) {
+                            System.out.println("INSERT NEW PIN CODE:");
+                            String newPincode = in.next();
+                            System.out.println("INSERT NEW PIN CODE AGAIN");
+                            String newPincodeAgain = in.next();
+
+                            if(newPincode.equals(newPincodeAgain) && newPincode.length() == 4){
+                                allAccounts[i].setPinCode(newPincode);
+                                System.out.println("YOUR NEW PIN CODE:" + newPincode);
+                                System.out.println();
+                            }
+                            else{
+                                System.out.println("PIN CODES DON'T MATCH OR LENGHT IS NOT EQUAL TO 4");
+                                System.out.println();
+                            }
+                        }
+                        if(choice == 4){
+                            System.out.println("INSERT SUM OF MONEY:");
+                            int sum1 = in.nextInt();
+                            allAccounts[i].debetBalance(sum1);
+                            System.out.println("NEW BALANCE:" + allAccounts[i].totalBalance());
+                            System.out.println();
+                        }
+                        if(choice == 5){
+                            System.out.println(allAccounts[i].toString());
+                            System.out.println();
+                        }
+                        if(choice == 6){
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        if(accNumber.length() == 9){
+            for (int i = 0; i < allAccounts.length; i++) {
+                if (accNumber.equals(allAccounts[i].getAccountNumber()) && pincoode.equals(allAccounts[i].getPinCode())) {
+                    while(true) {
+                        System.out.println("PRESS [1] TO CASH WITHDRAWAL"); // снять деньги
+                        System.out.println("PRESS [2] TO VIEW BALANCE");
+                        System.out.println("PRESS [3] TO CHANGE PIN CODE");
+                        System.out.println("PRESS [4] TO CASH IN ACCOUNT");  // добавить деньги в счет
+                        System.out.println("PRESS [5] TO VIEW ACCOUNT DATA"); // просмотр данные счета
+                        System.out.println("PRESS [6] TO EXIT");
+
+                        int choice = in.nextInt();
+
+                        if (choice == 1) {
+                            System.out.println("INSERT SUM:");
+                            int sum = in.nextInt();
+
+                            if (sum > allAccounts[i].totalBalance()) {
+                                System.out.println("THERE ARE NOT ENOUGH FUNDS IN YOUR ACCOUNT");
+                            } else {
+                                allAccounts[i].creditBalance(sum);
+                                System.out.println("TAKE THE MONEY AND CHECK");
+                                System.out.println("YOUR NEW BALANCE:" + allAccounts[i].totalBalance());
+                                System.out.println();
+                            }
+                        }
+                        if (choice == 2) {
+                            System.out.println("BALANCE:" + allAccounts[i].totalBalance());
+                            System.out.println();
+                        }
+                        if (choice == 3) {
+                            System.out.println("INSERT NEW PIN CODE:");
+                            String newPincode = in.next();
+                            System.out.println("INSERT NEW PIN CODE AGAIN");
+                            String newPincodeAgain = in.next();
+
+                            if(newPincode.equals(newPincodeAgain) && newPincode.length() == 4){
+                                allAccounts[i].setPinCode(newPincode);
+                                System.out.println("YOUR NEW PIN CODE:" + newPincode);
+                                System.out.println();
+                            }
+                            else{
+                                System.out.println("PIN CODES DON'T MATCH OR LENGHT IS NOT EQUAL TO 4");
+                                System.out.println();
+                            }
+                        }
+                        if(choice == 4){
+                            System.out.println("INSERT SUM OF MONEY:");
+                            int sum1 = in.nextInt();
+                            allAccounts[i].debetBalance(sum1);
+                            System.out.println("NEW BALANCE:" + allAccounts[i].totalBalance());
+                            System.out.println();
+                        }
+                        if(choice == 5){
+                            System.out.println(allAccounts[i].toString());
+                            System.out.println();
+                        }
+                        if(choice == 6){
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+public interface BankAccount {
+    public String getAccountNumber(); // Данный метод возвращает номер счета
+    public String getPinCode(); // Данный метод возвращает пин код карточки
+    public void setPinCode(String pinCode); // Данный метод меняет пин код карточки
+    public int totalBalance(); // Данный метод возвращает текущий баланс
+    public void creditBalance(int credit); // Данный метод мы используем при снятии денег со счета
+    public void debetBalance(int debet); // Данный метод мы используем при добавлении денег к счету
+    public String accountData(); // Данный метод возвращает данные о клиенте
+}
+
+
+
+
+
+
+
+
+public class CityBankAccount implements BankAccount{
+    private String name;
+    private String surname;
+    private int balance;
+    private String accountNumberCB;
+    private String pinCode;
+    private int sum;
+    private String newPincode;
+    private String oldPincode;
+    private int sum1;
+
+    public CityBankAccount(){}
+
+    public CityBankAccount(String name, String surname, int balance, String accountNumberCB, String pinCode) {
+        this.name = name;
+        this.surname = surname;
+        this.balance = balance;
+        this.accountNumberCB = accountNumberCB;
+        this.pinCode = pinCode;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public int getBalance() {
+        return balance;
+    }
+
+    public String getAccountNumber() {
+        return accountNumberCB;
+    }
+
+    public String getPinCode() {
+        return pinCode;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public void setBalance(int balance) {
+        this.balance = balance;
+    }
+
+    public void setAccountNumber(String accountNumberCB) {
+        this.accountNumberCB = accountNumberCB;
+    }
+
+    public void setPinCode(String newPincode) {
+        pinCode = newPincode;
+    }
+
+    public int totalBalance() {
+        return balance;
+    }
+
+    public void creditBalance(int credit) {
+        balance = balance-credit;
+    }
+
+    public void debetBalance(int debet) {
+        balance = balance+debet;
+    }
+
+    public String accountData() {
+        return toString();
+    }
+
+    public String toString() {
+        return "City Bank client, Full name:"+name+" "+surname+", BALANCE:"+balance+", Account number:"+accountNumberCB+", PIN code:"+pinCode;
+    }
+}
+
+
+
+
+
+
+
+
+public class NationalBankAccount implements BankAccount{
+    private String fullName;
+    private int balance;
+    private String accountNumberNB;
+    private String pinCode;
+    private String newPincode;
+
+    public NationalBankAccount(){}
+
+    public NationalBankAccount(String fullName, int balance, String accountNumberNB, String pinCode) {
+        this.fullName = fullName;
+        this.balance = balance;
+        this.accountNumberNB = accountNumberNB;
+        this.pinCode = pinCode;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public int getBalance() {
+        return balance;
+    }
+
+    public String getAccountNumber() {
+        return accountNumberNB;
+    }
+
+    public String getPinCode() {
+        return pinCode;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public void setBalance(int balance) {
+        this.balance = balance;
+    }
+
+    public void setAccountNumber(String accountNumberNB) {
+        this.accountNumberNB = accountNumberNB;
+    }
+
+    public void setPinCode(String newPincode) {
+        pinCode = newPincode;
+    }
+
+    public int totalBalance() {
+        return balance;
+    }
+
+    public void creditBalance(int credit) {
+        balance = (balance-200)-credit;
+    }
+
+    public void debetBalance(int debet) {
+        balance = balance+debet;
+
+    }
+
+    public String accountData() {
+        return toString();
+    }
+
+    public String toString() {
+        return "National Bank client, Full name:"+fullName+", BALANCE:"+balance+", Account number:"+accountNumberNB+", PIN code:"+pinCode;
+    }
+}

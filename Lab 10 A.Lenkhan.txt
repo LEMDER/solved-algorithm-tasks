@@ -1,0 +1,88 @@
+10 3 
+Nyam Nyam  2 3 2 5 4 false 
+Fu Von   2 5 4 7 5 true 
+Sluni Von 4 5 5 5 5 false 
+Gori Vadu 5 5 5 4 4  false 
+Za Rzhal 2 2 2 2 2 false 
+Ru Lon  2 5 4 2 3 false 
+My Hata 2 4 5 3 4 false 
+Komuto Ploho 5 5 5 5 5 false 
+Vanka Len 2 2 2 2 3 false 
+Sluni Body 2 3 2 3 2 false 
+
+
+#include <iostream>
+using namespace std;
+struct Playboy {
+	string name;
+	string sname;
+	int p1;
+	int p2;
+	int p3;
+	int p4;
+	int p5;
+	string dar;
+};
+struct Points {
+	string names;
+	string snames;
+	int goals;
+};
+
+void sort(Points* boyspoint, int n) {
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n - 1; j++) {
+			int total1 = boyspoint[j].goals;
+			int total2 = boyspoint[j+1].goals;
+
+			if(total1 < total2) {
+				swap(boyspoint[j], boyspoint[j + 1]);
+			}
+		}
+	}
+}
+
+int main(){
+	int n, m;
+	cin >> n >> m;;
+	
+
+	Playboy* artists = new Playboy[n];
+	
+
+	for (int i = 0; i < n; i++) {
+		cin >> artists[i].name >> artists[i].sname >> artists[i].p1 >> artists[i].p2 >> artists[i].p3 >> artists[i].p4 >> artists[i].p5 >> artists[i].dar;
+	}
+	cout << endl;
+
+	Points* boyspoint = new Points[n];
+
+	for (int i = 0; i < n; i++) {
+			if (artists[i].dar.compare("true") == 0) {
+				boyspoint[i].names = artists[i].name;
+				boyspoint[i].snames = artists[i].sname;
+				boyspoint[i].goals = artists[i].p1 + artists[i].p2 + artists[i].p3 + artists[i].p4 + artists[i].p5 + 10;
+			}
+			else{
+				boyspoint[i].names = artists[i].name;
+				boyspoint[i].snames = artists[i].sname;
+				boyspoint[i].goals = artists[i].p1 + artists[i].p2 + artists[i].p3 + artists[i].p4 + artists[i].p5;
+			}
+	}
+
+	sort(boyspoint, n);
+
+	for (int i = 0; i < m; i++) {
+		cout << i+1 << " PLACE - " << boyspoint[i].names << " " << boyspoint[i].snames << " " << boyspoint[i].goals << endl;
+	}
+	cout << "-------------------------------------------" << endl;
+
+	for (int i = 0; i < n; i++) {
+		cout << boyspoint[i].goals << " ";
+	}
+
+
+
+	delete[]artists;
+	delete[]boyspoint;
+}

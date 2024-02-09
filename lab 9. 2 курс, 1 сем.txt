@@ -1,0 +1,181 @@
+1)
+
+2
+Marry 
+2
+Toyota 45.5 Black
+BMW 78.5 Blue
+Mark 
+4
+Toyota 45.5 Black
+BMW 78.5 синяя
+RangeRover 85.5 WHite
+Cayenne 55.5 Blue
+
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+struct Car {
+    string model;
+    double volume;
+    string color;
+};
+
+struct Person {
+    string name;
+    int sum;
+    Car* cars;
+};
+
+int main()
+{
+    int n;
+    cin >> n;
+
+    Person* people = new Person[n];
+    for (int i = 0; i < n; i++) {
+        cin >> people[i].name >> people[i].sum;
+        people[i].cars = new Car[people[i].sum];
+        for (int j = 0; j < people[i].sum; j++) {
+            cin >> people[i].cars[j].model;
+            cin >> people[i].cars[j].volume;
+            cin >> people[i].cars[j].color;
+        }
+    }
+    cout << endl;
+
+
+    int index = 0;
+    int jndex = 0;
+    for (int i = 0; i < n; i++) {
+        double max = people[i].cars[0].volume;
+        for (int j = 1; j < people[i].sum; j++) {
+            if (people[i].cars[j].volume > max) {
+                max = people[i].cars[j].volume;
+                index = i;
+                jndex = j;
+            }
+        }
+    }
+
+    cout << people[index].cars[jndex].model << " " << people[index].cars[jndex].volume << " " << people[index].cars[jndex].color;
+
+
+    for (int i = 0; i < n; i++) {
+        delete[]people[i].cars;
+    }
+    delete[]people;
+    return 0;
+}
+
+
+
+
+
+
+
+2)
+2
+IT2-2004
+4
+Arnur 19 3.8
+Kuatzhan 18 3.9
+Bekzhan 20 4
+Kuat 18 2.2
+IT2-2001
+3
+Nazerke 17 3.8
+Roman 18 3.9
+Nurtileu 20 4
+
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+struct Student {
+    string name;
+    int age;
+    double gpa;
+};
+
+struct Group {
+    string gname;
+    int sum; 
+    Student* students;
+};
+
+void shell(double arr[], int count) {
+    for (int step = count / 2; step > 0; step /= 2) {
+        for (int i = step; i < count; i++) {
+            for (int j = i - step; j >= 0 && arr[j] > arr[j + step]; j -= step) {
+                swap(arr[j], arr[j + step]);
+            }
+        }
+    }
+}
+
+int main()
+{
+    int n;
+    cin >> n;
+    Group* groups = new Group[n];
+    Student* bests = new Student[n];
+    for (int i = 0; i < n; i++) {
+        cin >> groups[i].gname >> groups[i].sum;
+        groups[i].students = new Student[groups[i].sum];
+        for (int j = 0; j < groups[i].sum; j++) {
+            cin >> groups[i].students[j].name;
+            cin >> groups[i].students[j].age;
+            cin >> groups[i].students[j].gpa;
+        }
+    }
+
+    cout << endl;
+    int count = 0;
+    for (int i = 0; i < n; i++) {
+        count += groups[i].sum;
+    }
+   
+
+    double *arr = new double[count];
+    int k = 0;
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < groups[i].sum; j++) {
+            arr[k++] = groups[i].students[j].gpa;
+        }
+    }
+
+    double max = arr[0];
+    int indexx = 0;
+
+    for (int i = 0; i < count; i++) {
+        if (max < arr[i]) {
+            max = arr[i];
+            indexx = i;
+        }
+    }
+
+    cout << "MAX GPA:" << arr[indexx] << endl;
+
+    cout << "SUM OF ALL STUDENTS:" << count << endl;
+
+    cout << "SORTED GPA:" << endl;
+
+    shell(arr, count);
+    for (int i = 0; i < count; i++) {
+        cout << arr[i] << " ";
+    }
+
+    for (int i = 0; i < n; i++) {
+        delete[]groups[i].students;
+    }
+    delete[]groups;
+    return 0;
+}
+

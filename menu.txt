@@ -1,0 +1,261 @@
+package com.company;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+    User[] users = new User[100];
+    int index = 0;
+
+    while(true){
+        System.out.println("PRESS [1] TO ADD USER");
+        System.out.println("PRESS [2] TO LIST USERS");
+        System.out.println("PRESS [0] TO EXIT");
+        int choice = in.nextInt();
+
+        if(choice == 1){
+            System.out.println("PRESS [1] TO ADD STUDENT");
+            System.out.println("PRESS [2] TO ADD TEACHER");
+            int choice2 = in.nextInt();
+
+            if(choice2 == 1){
+                System.out.println("Insert Login:");
+                String login = in.next();
+                System.out.println("Insert Password:");
+                String password = in.next();
+                System.out.println("Insert Name:");
+                String name = in.next();
+                System.out.println("Insert Surname:");
+                String surname = in.next();
+                System.out.println("Insert Group:");
+                String group = in.next();
+                System.out.println("Insert GPA:");
+                double gpa = in.nextDouble();
+                users[index++] = new Student(login, password, name, surname, group, gpa);
+            }
+
+            if(choice2 == 2){
+                System.out.println("Insert Login:");
+                String login = in.next();
+                System.out.println("Insert Password:");
+                String password = in.next();
+                System.out.println("Insert Nick Name:");
+                String nickName = in.next();
+                System.out.println("Insert Status:");
+                String status = in.next();
+
+                System.out.println("PRESS [1] TO ADD SUBJECT");
+                System.out.println("PRESS [0] TO FINISH ADDING SUBJECT");
+                int choice3 = in.nextInt();
+
+                if(choice3 == 1){
+                    System.out.println("Insert Subject:");
+                    String subject = in.next();
+
+                    users[index++] = new Teacher(login, password, nickName, status, subject);
+                }
+                if(choice3 == 0){
+                    users[index++] = new Teacher(login, password, nickName, status);
+                }
+
+
+
+            }
+        }
+        if(choice == 2){
+            System.out.println("PRESS [1] TO LIST STUDENTS");
+            System.out.println("PRESS [2] TO LIST TEACHERS");
+            System.out.println("PRESS [3] TO LIST USER BY INDEX");
+            int choice4 = in.nextInt();
+
+            if(choice4 == 1){
+                for(int i = 0; i < index; i++){
+                    if(users[i] instanceof Student){
+                        System.out.println(users[i].getData());
+                    }
+                }
+            }
+            if(choice4 == 2){
+                for(int i = 0; i < index; i++){
+                    if(users[i] instanceof Teacher){
+                        System.out.println(users[i].getData());
+                    }
+                }
+            }
+            if(choice4 == 3){
+             int n = in.nextInt();
+             System.out.println(users[n].getData());
+            }
+
+        }
+        if(choice == 0){
+            break;
+        }
+    }
+
+    }
+}
+
+
+
+2
+package com.company;
+
+public class User {
+    private String login;
+    private String password;
+
+    public User() {
+    }
+
+    public User(String login, String password) {
+        this.login = login;
+        this.password = password;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getData() {
+        return "User{" +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
+}
+
+
+3
+package com.company;
+
+public class Student extends User{
+    private String name;
+    private String surname;
+    private String group;
+    private double gpa;
+
+    public Student(String login, String password, String name, String surname, String group, double gpa) {
+        super(login, password);
+        this.name = name;
+        this.surname = surname;
+        this.group = group;
+        this.gpa = gpa;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public String getGroup() {
+        return group;
+    }
+
+    public double getGpa() {
+        return gpa;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
+    }
+
+    public void setGpa(double gpa) {
+        this.gpa = gpa;
+    }
+
+
+}
+
+
+
+4
+package com.company;
+
+import java.sql.SQLOutput;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Teacher extends User{
+    Scanner in = new Scanner(System.in);
+
+    private String nickName;
+    private String status;
+    private String subjects;
+
+    public Teacher(String login, String password, String nickName, String status, String subject){}
+
+    public Teacher(String login, String password, Scanner in, String nickName, String status, String subjects) {
+        super(login, password);
+        this.in = in;
+        this.nickName = nickName;
+        this.status = status;
+        this.subjects = subjects;
+    }
+
+    public Teacher(String login, String password, String nickName, String status) {
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setSubjects(String subjects) {this.subjects = subjects;}
+
+
+    public String getSubjects() {
+        return subjects;
+    }
+
+
+    public String getData() {
+        return "Teacher{" +
+                ", nickName='" + nickName + '\'' +
+                ", status='" + status + '\'' +
+                ", subjects='" + subjects + '\'' +
+                '}';
+    }
+}

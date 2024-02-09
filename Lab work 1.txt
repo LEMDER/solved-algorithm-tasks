@@ -1,0 +1,265 @@
+3)
+
+#include <iostream> ;
+#include <math.h>
+using namespace std;
+int main()
+{
+	double a;
+	double b;
+
+	cin >> a >> b;
+	cout << "S=" << a*b << endl;
+	cout << "P=" << 2 * (a + b);
+}
+
+----------------------------------------------
+4)
+
+#include <iostream> ;
+#include <math.h>
+using namespace std;
+int main()
+{
+	double d;
+	cin >> d;
+	cout << "L=" << 3.14*d;
+}
+
+----------------------------------------------
+5)
+
+#include <iostream> ;
+#include <math.h>
+using namespace std;
+int main()
+{
+	double a;
+	cin >> a;
+	cout << "V=" << a*a*a << endl;
+	cout << "S=" << 6*a*a;
+}
+
+-----------------------------------------------
+7)
+
+#include <iostream> ;
+#include <math.h>
+using namespace std;
+int main()
+{
+	double R;
+
+	cin >> R;
+	cout << "L=" << 2*R*3.14 << endl;
+	cout << "S=" << 3.14*R*R;
+}
+
+------------------------------------------------
+8)
+
+#include <iostream> ;
+#include <math.h>
+using namespace std;
+int main()
+{
+	double a;
+	double b;
+
+	cin >> a >> b;
+	cout << (a+b)/2;
+}
+
+-------------------------------------------------
+9)
+
+#include <iostream> ;
+#include <math.h>
+using namespace std;
+int main()
+{
+	double a;
+	double b;
+
+	cin >> a >> b;
+	cout << sqrt(a*b);
+}
+
+-------------------------------------------------
+11)
+
+#include <iostream>;
+#include <cmath>;
+using namespace std;
+
+int main()
+{
+	double a;
+	double b;
+
+	cin >> a >> b;
+	cout << "Sum=" << abs(a + b) << endl;
+	cout << "Difference=" << abs(a - b) << endl;
+	cout << "Multiplication=" << a * b << endl;
+	cout << "Division=" << abs(a / b);
+}
+
+--------------------------------------------------
+13)
+
+#include <iostream> ;
+#include <math.h>
+using namespace std;
+int main()
+{
+	double R1;
+	double R2;
+
+
+	cin >> R1 >> R2;
+	cout << "S1=" << 3.14*R1*R1 << endl;
+	cout << "S2=" << 3.14*R2*R2 << endl;
+	
+	cout << "S3=" << (3.14 * R1 * R1)-(3.14 * R2 * R2);
+
+}
+
+-------------------------------------------------
+16)
+
+#include <iostream> ;
+#include <math.h>
+using namespace std;
+int main()
+{
+	double x1;
+	double x2;
+
+
+	cin >> x1 >> x2;
+	cout << "|x2-x1|=" << abs(x2-x1);
+	
+
+}
+
+--------------------------------------------------
+20)
+
+#include <iostream>;
+#include <cmath>;
+using namespace std;
+
+int main()
+{
+	double x1;
+	double x2;
+	double y1;
+	double y2;
+
+	cin >> x1 >> x2 >> y1 >> y2;
+	cout << "Distance=" << sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
+}
+
+---------------------------------------------------
+22)
+
+
+#include <iostream>;
+#include <cmath>;
+using namespace std;
+
+int main()
+{
+	double a;
+	double b;
+	int temp;
+
+	cin >> a >> b;
+
+	temp = a;
+	a = b;
+	b = temp;
+
+	cout << "new A=" << a << endl;
+	cout << "new B=" << b << endl;
+
+}
+
+----------------------------------------------------
+27)
+
+#include <iostream>;
+#include <cmath>;
+using namespace std;
+
+int main()
+{
+	double A;
+	cin >> A;
+
+	cout << "A^2=" << A * A << endl;
+	cout << "A^4=" << A * A * A * A << endl;
+	cout << "A^8=" << pow(A, 8);
+}
+
+----------------------------------------------------
+32)
+
+#include <iostream>;
+#include <cmath>;
+using namespace std;
+
+int main()
+{
+	double Tcelcium;
+	cin >> Tcelcium;
+
+	cout << "T Fahrenheit=" << (Tcelcium*1.8)+32;
+}
+
+-----------------------------------------------------
+37) 
+
+#include <iostream>;
+#include <cmath>;
+using namespace std;
+
+int main()
+{
+	double V1;
+	double V2;
+	double T;
+	double S0;
+	double S1;
+	double S;
+
+
+	cin >> V1 >> V2 >> T >> S0;
+
+	S1 = (V1 + V2) * T;
+	S = abs(S0 - S1);
+
+	cout << "S=" << S << endl;
+}
+
+------------------------------------------------------
+40)
+
+#include <iostream>;
+#include <cmath>;
+using namespace std;
+
+int main()
+{
+	double A1;
+	double A2;
+	double B1;
+	double B2;
+	double C1;
+	double C2;
+
+	cin >> A1 >> A2 >> B1 >> B2 >> C1 >> C2;
+
+	cout << "x=" << (C1*B2-C2*B1)/(A1*B2-A2*B1) << endl;
+	cout << "y=" << (A1 * C2 - A2 * C1) / (A1 * B2 - A2 * B1);
+}

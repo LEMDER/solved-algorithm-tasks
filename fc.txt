@@ -1,0 +1,85 @@
+public class Main {
+    public static void main(String[] args) {
+     Player MESSI = new Player(30,"Lionel","Messi","RW");
+     Player NEYMAR = new Player(10,"Neymar", "Junior", "LW");
+     Player MBAPPE = new Player(11, "Kylian", "Mbappe", "LW");
+     Player RAMOS = new Player(4, "Sergio", "Ramos","CB");
+     Player NAVAS = new Player(1, "Keylor", "Navas", "GK");
+
+     Player [] Players1 = {MESSI,NEYMAR, MBAPPE, RAMOS, NAVAS};
+
+     Player STEGEN = new Player(1,"Marc-Andre", "ter Stegen", "GK");
+     Player PIQUE = new Player(3, "Gerard", "Pique", "CB");
+     Player BUSQUETS = new Player(5,"Sergio", "Busquets", "CDM");
+     Player DEMBELE = new Player(11, "Ousman", "Dembele", "RM");
+     Player FATI = new Player(22, "Ansu", "Fati", "LW");
+
+     Player [] Players2 = {STEGEN, PIQUE, BUSQUETS, DEMBELE, FATI};
+
+     Club PSG = new Club("PSG", "France", 101, Players1);
+     Club BARCELONA = new Club("FCBARCELONA","Spain", 85,Players2);
+
+     Club [] Clubs = {PSG, BARCELONA};
+    }
+
+
+}
+
+club.java:
+import java.util.Arrays;
+
+public class Club {
+    String name;
+    String country;
+    int ratingPoints;
+    Player []players;
+
+    public Club() {
+
+    }
+
+    public Club(String name, String country, int ratingPoints, Player[] players) {
+        this.name = name;
+        this.country = country;
+        this.ratingPoints = ratingPoints;
+        this.players = players;
+    }
+
+    public String toString() {
+        return "Club{" +
+                "name='" + name + '\'' +
+                ", country='" + country + '\'' +
+                ", ratingPoints=" + ratingPoints +
+                ", players=" + Arrays.toString(players) +
+                '}';
+    }
+}
+
+
+player.java:
+public class Player {
+    int number;
+    String name;
+    String surname;
+    String position;
+
+    public Player() {
+
+    }
+
+    public Player(int number, String name, String surname, String position) {
+        this.number = number;
+        this.name = name;
+        this.surname = surname;
+        this.position = position;
+    }
+
+    public String toString() {
+        return "Player{" +
+                "number=" + number +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", position='" + position + '\'' +
+                '}';
+    }
+}

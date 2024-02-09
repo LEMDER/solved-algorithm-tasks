@@ -1,0 +1,261 @@
+package com.company;
+
+public class Main {
+    public static void main(String[] args) {
+        Staff staf1 = new Staff(01, "Danny", "Rand", 80000);
+        Staff staf2 = new Staff(02, "Sam", "Alexander", 65000);
+        Staff staf3 = new Staff(03, "Luke", "Cage", 75000);
+        Staff staf4 = new Staff(04, "Tom", "Hanks", 90000);
+        Staff staf5 = new Staff(05, "Nicolas", "Danvers", 78500);
+        Staff[] staffs = {staf1, staf2, staf3, staf4, staf5};
+
+        HRManagers manager1 = new HRManagers(10, "Antony Stark", 120000);
+        HRManagers manager2 = new HRManagers(11, "Sam Willson", 110000);
+        HRManagers manager3 = new HRManagers(12, "Jean Grey", 140000);
+        HRManagers manager4 = new HRManagers(13, "Kitty Pride", 135000);
+        HRManagers manager5 = new HRManagers(14, "Vito Scaletta", 118000);
+        HRManagers[] managers = {manager1, manager2, manager3, manager4, manager5};
+
+        Programmers prog1 = new Programmers(101, "Exile", 200000, 20000, 2);
+        Programmers prog2 = new Programmers(102, "Evelone192", 1000000, 90000, 5);
+        Programmers prog3 = new Programmers(103, "Buster", 920000, 50000, 6);
+        Programmers prog4 = new Programmers(104, "by_owl", 280000, 60000,2);
+        Programmers prog5 = new Programmers(105,"pokanoname", 320000, 30000,4);
+        Programmers[] programmers = {prog1, prog2, prog3, prog4, prog5};
+
+int maxStaff = 0;
+int maxManager = 0;
+int maxProg = 0;
+int max = 0;
+        for(int i = 0; i < staffs.length; i++){
+            if( maxStaff < staffs[i].getSalary()){
+                maxStaff = staffs[i].getSalary();
+            }
+        }
+
+        for(int i = 0; i < managers.length; i++){
+            if(maxManager < managers[i].getSalary()){
+                maxManager = managers[i].getSalary();
+            }
+        }
+
+        for(int i = 0; i < programmers.length; i++){
+            if(maxProg < programmers[i].getSalary()){
+                maxProg = programmers[i].getSalary();
+            }
+        }
+
+        int [] maxs = {maxManager, maxProg, maxStaff};
+        for(int i = 0; i < maxs.length; i++){
+            if(max < maxs[i]){
+                max = maxs[i];
+            }
+        }
+
+        System.out.println(max);
+
+    }
+}
+
+
+
+
+
+
+
+
+2
+package com.company;
+
+public interface Workers {
+    String getWorkerData();
+
+    int getSalary();
+}
+
+
+
+
+
+
+
+3
+package com.company;
+
+public class Staff implements Workers{
+    private int id;
+    private String name;
+    private String surname;
+    private int salary;
+
+    public Staff(){}
+
+    public Staff(int id, String name, String surname, int salary) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.salary = salary;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+
+    public String getWorkerData() {
+        return "ID:" + id + ", Name:" + name + ", Surname:" + surname;
+    }
+
+    public int getSalary() {
+        return salary;
+    }
+
+
+}
+
+
+
+
+
+
+
+
+4
+package com.company;
+
+public class HRManagers implements Workers {
+    private int id;
+    private String fullName;
+    private int salary;
+
+    public HRManagers(){}
+
+    public HRManagers(int id, String fullName, int salary) {
+        this.id = id;
+        this.fullName = fullName;
+        this.salary = salary;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+
+    public String getWorkerData() {
+        return "ID:"+id+", Name:"+fullName;
+    }
+
+    public int getSalary() {
+        return 0;
+    }
+}
+
+
+
+
+
+
+
+
+5
+package com.company;
+
+public class Programmers implements Workers {
+    private int id;
+    private String nickname;
+    private int salary;
+    private int bonusSalary;
+    private int KPIValue;
+
+    public Programmers(){}
+
+    public Programmers(int id, String nickname, int salary, int bonusSalary, int KPIValue) {
+        this.id = id;
+        this.nickname = nickname;
+        this.salary = salary;
+        this.bonusSalary = bonusSalary;
+        this.KPIValue = KPIValue;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public int getBonusSalary() {
+        return bonusSalary;
+    }
+
+    public int getKPIValue() {
+        return KPIValue;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+
+    public void setBonusSalary(int bonusSalary) {
+        this.bonusSalary = bonusSalary;
+    }
+
+    public void setKPIValue(int KPIValue) {
+        this.KPIValue = KPIValue;
+    }
+
+    public String getWorkerData() {
+        return "ID:"+id+", Nick Name:"+nickname;
+    }
+
+    public int getSalary() {
+        return salary + KPIValue*bonusSalary;
+    }
+}

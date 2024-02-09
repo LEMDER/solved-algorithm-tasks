@@ -1,0 +1,45 @@
+FIRST VARIANT
+Alisher Lenkhan IT2-2011
+
+1)
+
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main() {
+
+	double t, x;
+	cout << "Write x:";
+	cin >> x;
+	cout << "Write t:";
+	cin >> t;
+
+	cout << "7t^2+sin*x^3+9,2 = " << 7*pow(t, 2) + 3*sin(pow(x, 3)) + 9. 2;
+}
+
+2)
+
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main() {
+
+	int t;
+    cout << "Write time in minutes:";
+	cin >> t;
+
+    if (t>3) {
+        cout << "Red" << endl;
+    }
+    else if (t < 3) {
+        cout << "Green" << endl;
+    }
+    else
+        cout << "Yellow" << endl;
+    if (t >= 1 && t <= 60) {
+    }
+    else
+        cout << "ERROR";
+}

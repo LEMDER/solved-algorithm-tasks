@@ -1,0 +1,126 @@
+ALISHER LENKHAN 
+VERSION 2 
+VARIANT 1
+1)
+
+3
+Aidana 95000 2017
+Arman 78000 2006
+Kairat 320000 1999
+
+#include <iostream>
+using namespace std;
+//version 2   variant 1
+
+struct Worker {
+	string name;
+	double salary;
+	int time;
+};
+
+void sort(Worker* workers, int n) {
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n - 1; j++) {
+			int total1 = workers[j].salary;
+			int total2 = workers[j + 1].salary;
+
+			if (total1 < total2) {
+				swap(workers[j], workers[j + 1]);
+			}
+		}
+	}
+}
+int main() {
+	int n;
+	cin >> n;
+	Worker* workers = new Worker[n];
+	for (int i = 0; i < n; i++) {
+		cin >> workers[i].name >> workers[i].salary >> workers[i].time;	
+	}
+	cout << endl;
+
+	for (int i = 0; i < n; i++) {
+		if (2021 - (workers[i].time) > 5) {
+			workers[i].salary += ((workers[i].salary * 20) / 100);
+		}
+	}
+	sort(workers, n);
+
+	for (int i = 0; i < n; i++) {
+		cout << workers[i].name << " " << workers[i].salary << endl;
+	}
+
+	delete[]workers;
+}
+
+
+
+
+2)
+2
+SIS-1805K 3
+Togzhan 3.5 17
+Asan 2.6 21
+Nazzere 3.1 18
+SIS-1806K 3
+Eraly 3.9 17
+Almaz 1.9 18
+Maulen 3.6 18
+
+
+#include <iostream>
+using namespace std;
+//version 2   variant 1
+
+struct Student {
+	string name;
+	double gpa;
+	int age;
+};
+
+struct Group {
+	string name;
+	int count;
+	Student* students;
+};
+
+int main() {
+	int n;
+	cin >> n;
+	Group* groups = new Group[n];
+
+	for (int i = 0; i < n; i++) {
+		cin >> groups[i].name >> groups[i].count;
+		groups[i].students = new Student[groups[i].count];
+		for (int j = 0; j < groups[i].count; j++) {
+			cin >> groups[i].students[j].name;
+			cin >> groups[i].students[j].gpa;
+			cin >> groups[i].students[j].age;
+		}
+	}
+
+	for (int i = 0; i < n; i++) {
+		double max = 0;
+		int index = 0;
+		int jndex = 0;
+		for (int j = 0; j < groups[i].count; j++) {
+			if (groups[i].students[j].age > 17) {
+				if (max < groups[i].students[j].gpa) {
+					max = groups[i].students[j].gpa;
+					index = i;
+					jndex = j;
+				}
+			}
+		}
+		cout << "MAX GPA OF " << groups[index].name << " HAS " << groups[index].students[jndex].name << endl;
+	}
+
+
+
+
+
+	for (int i = 0; i < n; i++) {
+		delete[]groups[i].students;
+	}
+	delete[]groups;
+}

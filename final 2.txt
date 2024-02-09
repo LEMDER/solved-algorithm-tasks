@@ -1,0 +1,263 @@
+Alisher Lenkhan IT2-2011
+
+VARIANT 1
+1)
+
+Input:
+7
+9 6 5 3 6 0 2
+Output:
+9 5 3 0 2
+
+
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    int cur_max = INT32_MIN, sec_max = -1;
+    for (int i = 0; i < n; ++i) {
+        cin >> a[i];
+        if (a[i] > cur_max) {
+            sec_max = cur_max;
+            cur_max = a[i];
+        } else if (a[i] > sec_max && cur_max != a[i]) {
+            sec_max = a[i];
+        }
+    }
+    for (auto it = a.begin(); it != a.end() ; it++) {
+        if (*it == sec_max){
+            a.erase(it);
+        }
+    }
+    for (int i : a) {
+        cout << i << " ";
+    }
+    return 0;
+}
+
+
+2)
+
+Input:
+2
+CSEE-2001 3
+Almaz 24 1.4
+Miras 17 2.5
+Ainash 19 3.9
+SIS-2006 3
+Marat 19 2.3
+Yerasyl 16 4.0
+Bayan 22 1.2
+name
+
+Output:
+CSEE-2001
+Ainash 19 3.9
+Almaz 24 1.4
+Miras 17 2.5
+SIS-2006
+Bayan 22 1.2
+Marat 19 2.3
+Yerasyl 16 4.0
+
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+struct Student {
+    string name;
+    int age;
+    double GPA;
+};
+
+struct Group {
+    string name;
+    int count;
+    Student *students;
+
+    void sort_by_name() {
+        cout << name << " " << count << "\n";
+        for (int i = 0; i < count; ++i) {
+            for (int j = 0; j < count - 1; ++j) {
+                if ((students[j].name.compare(students[j + 1].name)) > 0) {
+                    swap(students[j], students[j + 1]);
+                }
+            }
+        }
+        for (int i = 0; i < count; ++i) {
+            cout << students[i].name << " " << students[i].age << " " << students[i].GPA << "\n";
+        }
+    }
+
+    void sort_by_age(){
+        cout << name << " " << count << "\n";
+        for (int i = 0; i < count; ++i) {
+            for (int j = 0; j < count - 1; ++j) {
+                if (students[j].age > students[j + 1].age) {
+                    swap(students[j], students[j + 1]);
+                }
+            }
+        }
+        for (int i = 0; i < count; ++i) {
+            cout << students[i].name << " " << students[i].age << " " << students[i].GPA << "\n";
+        }
+    }
+    void sort_by_mark(){
+        cout << name << " " << count << "\n";
+        for (int i = 0; i < count; ++i) {
+            for (int j = 0; j < count - 1; ++j) {
+                if (students[j].GPA > students[j + 1].GPA) {
+                    swap(students[j], students[j + 1]);
+                }
+            }
+        }
+        for (int i = 0; i < count; ++i) {
+            cout << students[i].name << " " << students[i].age << " " << students[i].GPA << "\n";
+        }
+    }
+};
+
+int main() {
+    int n;
+    cin >> n;
+    Group *group = new Group[n];
+
+    for (int i = 0; i < n; ++i) {
+        cin >> group[i].name;
+        cin >> group[i].count;
+        Student *student = new Student[group[i].count];
+        for (int j = 0; j < group[i].count; ++j) {
+            cin >> student[j].name;
+            cin >> student[j].age;
+            cin >> student[j].GPA;
+        }
+        group[i].students = student;
+    }
+    cout << "\n\n";
+    string sort_param;
+    cin >> sort_param;
+
+    if (sort_param == "name") {
+        for (int i = 0; i < n; ++i) {
+            group[i].sort_by_name();
+            cout << "\n\n";
+        }
+    } else if (sort_param == "age") {
+        for (int i = 0; i < n; ++i) {
+            group[i].sort_by_age();
+            cout << "\n\n";
+        }
+    } else if (sort_param == "mark") {
+        for (int i = 0; i < n; ++i) {
+            group[i].sort_by_mark();
+            cout << "\n\n";
+        }
+    }
+
+    delete[]group;
+    return 0;
+}
+
+
+
+3)
+
+Input:
+5
+Kuat Kambarov 27 12:40 15:25
+Aigul Tursinova 41 9:00 12:20
+Dias Bulatov 25 15:20 18:40
+Oleg Boyarskii 34 18:30 22:45
+Alina Smirnova 26 13:35 18:00
+Output:
+3
+Dias Bulatov 25 15:20 18:40
+Alina Smirnova 26 13:35 18:00
+Kuat Kambarov 27 12:40 15:25
+
+
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
+struct Guest {
+    string name;
+    string surname;
+    int age;
+    string arrive;
+    string depart;
+
+};
+
+void sort_by_age(vector<Guest> guests, int n) {
+    cout << n << "\n";
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n - 1; ++j) {
+            if (guests[j].age > guests[j + 1].age) {
+                swap(guests[j], guests[j + 1]);
+            }
+        }
+    }
+    for (int i = 0; i < n; ++i) {
+        cout << guests[i].name << " " << guests[i].surname << " " << guests[i].age << " " << guests[i].arrive << " " << guests[i].depart << "\n";
+    }
+}
+
+int to_minut(string time) {
+    string h, m;
+    bool b = true;
+    for (int i = 0; i < time.size(); ++i) {
+        if (time[i] == ':') b = false;
+        else if (b) {
+            h += time[i];
+        }
+        else {
+            m += time[i];
+        }
+    }
+    int hours = stoi(h), minut = stoi(m);
+    return hours * 60 + minut;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    Guest* guest = new Guest[n];
+    vector<int> index;
+    for (int i = 0; i < n; i++) {
+        cin >> guest[i].name;
+        cin >> guest[i].surname;
+        cin >> guest[i].age;
+        cin >> guest[i].arrive;
+        cin >> guest[i].depart;
+    }
+    int max = 0;
+    vector<Guest> guests;
+    for (int i = 0; i < n; ++i) {
+        int cnt = 0;
+        vector<Guest> temp_guests;
+        for (int j = 0; j < n; ++j) {
+            if (to_minut(guest[i].arrive) <= to_minut(guest[j].arrive) &&
+                to_minut(guest[j].arrive) <= to_minut(guest[i].depart)) {
+                cnt++;
+                temp_guests.push_back(guest[j]);
+            }
+        }
+        if (cnt > max) {
+            guests = temp_guests;
+            max = cnt;
+        }
+    }
+    sort_by_age(guests, max);
+    delete[]guest;
+    return 0;
+}

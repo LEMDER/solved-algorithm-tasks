@@ -1,0 +1,132 @@
+For 2)
+
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main()
+{
+	int a ,b;
+	cout << "Write your A,B (A<B)" << endl;
+	cout << "A:";
+	cin >> a;
+	cout << "B:";
+	cin >> b;
+	
+	int i;
+	for (i = a; i <= b; ++i)
+		cout << i << endl;
+	cout << "N:" << b - a + 1 << endl;
+}
+
+For 5)
+
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main()
+{
+	float a, k;
+	cout << "Price for 1kg:";
+	cin >> a;
+	cout << "Candies price:" << endl;
+	for (k = 0.1; k < 1.1; k += 0.1)
+		cout << k << " kg = " << a * k << endl;
+}
+
+For 6)
+
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main()
+{
+	double a, k=1.2;
+	cout << "Price for 1 kg:";
+	cin >> a;
+	cout << "Candies price:" << endl;
+	for (; k < 2.1; k = k + 0.1) {
+		cout << k << " kg = " << a * k << endl;
+	}
+}
+
+For 16)
+
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main()
+{
+    float a;
+    cout << "Number:";
+    cin >> a;
+
+    int n;
+    cout << "Powers:";
+    cin >> n;
+
+    float k = 1;
+    int c;
+    for (c = 1; c <= n; c++) {
+        k *= a;
+        cout << k << endl;
+    }
+}
+
+For 17)
+
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main()
+{
+    float a;
+    cout << "Number:";
+    cin >> a;
+
+    int n, i;
+    cout << "Powers:";
+    cin >> n;
+
+
+    float b = 1, k = 1;
+
+    for (i = 2; i <= n; ++i)
+    {
+        b *= a;
+        k += b;
+    }
+    cout << k;
+}
+
+For 18)
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main()
+{
+    float a;
+    cout << "Number:";
+    cin >> a;
+
+    int n;
+    cout << "Powers:";
+    cin >> n;
+
+
+    float b = 1, k = 1;
+    int i;
+
+    for (i = 2; i <= n; ++i)
+    {
+        b *= -a;
+        k += b;
+    }
+    cout << k;
+}
+

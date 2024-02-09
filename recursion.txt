@@ -1,0 +1,130 @@
+1)Описать рекурсивные функции Fact(N) и Fact2(N) вещественного типа,
+вычисляющие значения факториала N! и двойного факториала N!! соответственно (N > 0 — параметр целого типа). С помощью этих функций вычислить факториалы и двойные факториалы пяти данных чисел.
+
+#include <iostream>
+
+using namespace std;
+
+int fact(int n){
+    if(n ==1 || n == 0){
+        return 1;
+    }
+    return n*fact(n-1);
+}
+int fact2(int n){
+    if(n == 1 || n == 0){
+        return 1;
+    }
+    return n*fact2(n-2);
+}
+
+int main(){
+    int n;
+    cout << "Insert n:";
+    cin >> n;
+    
+    cout << "n!=" << fact(n) << endl;
+    cout << "n!!=" << fact2(n);
+
+    return 0;
+}
+
+
+
+
+
+4) Описать рекурсивную функцию FibRec(N) целого типа, вычисляющую N-е
+число Фибоначчи F(N) по формуле: F(1) = F(2) = 1, F(k) = F(k–2) + F(k–1),
+k = 3, 4, ... С помощью этой функции найти пять чисел Фибоначчи с
+указанными номерами и вывести эти числа вместе с количеством рекурсивных вызовов функции FibRec, потребовавшихся для их нахождения.
+
+
+#include <iostream>
+
+using namespace std;
+int fibrec(int n){
+    if(n <= 0){
+        return n;
+    }
+    return fibrec(n-1) + fibrec(n-2);
+}
+
+int main()
+{
+int arr[5];
+    cout << "Insert array:";
+    for(int i = 0; i < 5; i++){
+        cin >> arr[i];
+    }
+    
+    for(int i = 0; i < 5; ++i){
+        cout << arr[i] << fibrec(arr[i]) << endl;
+       
+    }
+
+    return 0;
+}
+
+
+
+
+
+6)
+#include <iostream>
+
+using namespace std;
+
+int nod(int a, int b){
+    if(b!=0 && a!=0){
+        return nod(b, a%b);
+    }
+}
+
+int main(){
+    int a,b;
+    cout << "INSERT A:";
+    cin >> a;
+    cout << "INSERT B:";
+    cin >> b;
+    
+    cout << nod(a,b) << endl;
+    
+    
+
+    return 0;
+}
+
+
+
+
+
+12)
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+double func1(double a, double b, double e){
+    double k = (a + b)/2;
+    if ((fabs((a*a - 81) - (b*b - 81)) <= e ) || ( fabs(k*k - 81) <= e ) ){
+        return (a + b) / 2;
+    }
+    if ((a*a - 81)*(k*k - 81) <= 0.0 )
+          func1(a, k, e);
+       else
+          func1(k, b, e);
+}
+
+int main(){
+    double a, b, e;
+    cout << "INSERT a:";
+    cin >> a;
+    cout << "INSERT b:";
+    cin >> b;
+    cout << "INSERT EPSILON:";
+    cin >> e;
+    
+    cout << func1(a, b, e) << endl;
+
+    return 0;
+}

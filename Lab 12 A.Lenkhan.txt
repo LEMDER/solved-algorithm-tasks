@@ -1,0 +1,132 @@
+1)
+
+5
+Angry_boy 0 0 10
+Free_router 10 10 10
+Virus 0 0 10
+Cafe 0 0 1
+Santa 100 100 10
+5 5
+
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+struct Router{
+	string name;
+	int x;
+	int y;
+	float r;
+};
+
+int main()
+{
+	int n;
+	cin >> n;
+
+	Router* routers = new Router[n];
+
+	for (int i = 0; i < n; i++){
+		cin >> routers[i].name >> routers[i].x >> routers[i].y >> routers[i].r;
+	}
+	
+	int xuser, yuser;
+	cin >> xuser >> yuser;
+
+	cout << endl << endl;
+	for (int i = 0; i < n; i++){
+		float rr = pow(routers[i].r, 2);
+		float xx = pow(xuser - routers[i].x, 2);
+		float yy = pow(yuser - routers[i].y, 2);
+		if (rr >= (xx + yy)){
+			cout << routers[i].name << endl;
+		}
+	}
+
+	delete[] routers;
+}
+
+
+
+2)
+
+10
+ 1 Temari 30 2 100
+ 2 Jiraya 60 1 200  
+ 3 Kiba 40 2 100  
+ 4 Pain 40 3 100  
+ 5 Sasuke 50 1 300   
+ 6 Sakura 30 1 200 
+ 7 Itachi 50 2 400 
+ 8 Ino 40 1 100 
+ 9 Naruto 20 3 500 
+10 Madara 40 2 150
+
+
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+struct Naruto {
+    int id;
+    string name;
+    int strength;
+    int freauency;
+    int hp;
+    int wins = 0;
+};
+
+void sort(Naruto* heroes, int n) {
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n - 1; j++) {
+            int total1 = heroes[j].wins;
+            int total2 = heroes[j + 1].wins;
+            if (total1 < total2) {
+                swap(heroes[j], heroes[j + 1]);
+            }
+        }
+    }
+}
+
+
+int main() {
+    int n;
+    cin >> n;
+
+    Naruto* heroes = new Naruto[n];
+
+    for (int i = 0; i < n; i++) {
+        cin >> heroes[i].id >> heroes[i].name >> heroes[i].strength >> heroes[i].freauency >> heroes[i].hp;
+    }
+    cout << endl;
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            for (int k = 1; k < 50; k++) {
+                if (i == j) {
+                    break;
+                }
+                else if ((heroes[i].strength * heroes[i].freauency) * k >= heroes[j].hp){
+                    heroes[i].wins += 1;
+                    break;
+                }
+                else if (heroes[j].strength * heroes[i].freauency * k >= heroes[i].hp) {
+                    break;
+                }
+            }
+        }
+    }
+    
+    sort(heroes, n);
+    cout << heroes[0].id << " " << heroes[0].name << " " << heroes[0].strength << " " << heroes[0].freauency << " " << heroes[0].hp << endl;
+
+    for (int i = 0; i < n; i++) {
+        cout << heroes[i].name << " " << heroes[i].wins << endl;
+    }
+
+
+    delete[]heroes;
+    return 0;
+}

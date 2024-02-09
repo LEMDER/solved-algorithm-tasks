@@ -1,0 +1,220 @@
+ALISHER LENKHAN    IT2-2011
+Proc 2)
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+void PowerA234(double A, double& B, double& C, double& D) {
+
+    B = A * A;
+    C = B * A;
+    D = B * B;
+    return;
+}
+
+int main()
+{ 
+    double A, B, C, D;
+    for (int i = 0; i < 5; i++) {
+        cout << "Write A:";
+        cin >> A;
+        PowerA234(A, B, C, D);
+
+        cout << "Answer B:" << B << endl;
+        cout << "Answer C:" << C << endl;
+        cout << "Answer D:" << D << endl;
+
+
+    }
+}
+
+Proc 3)
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+void Mean(double X, double Y, double& AMean, double& GMean) {
+
+    AMean = (X + Y) / 2.0;
+    GMean = sqrt(X * Y);
+    return;
+}
+int main()
+{ 
+	double A, B, C, D;
+	double AMean, GMean;
+	cout << "Write A:";
+	cin >> A;
+	cout << "Write B:";
+	cin >> B;
+	cout << "Write C:";
+	cin >> C;
+	cout << "Write D:";
+	cin >> D;
+
+
+	cout << "A = " << A << " : ";
+	cout << "B = " << B << " : ";
+	cout << "C = " << C << " : ";
+	cout << "D = " << D << endl;
+
+	Mean(A, B, AMean, GMean);
+	cout << endl << "(A,B)" << endl;
+	cout << "AMean = " << AMean << " : ";
+	cout << "GMean = " << GMean << endl;
+
+	Mean(A, C, AMean, GMean);
+	cout << endl << "(A,C)" << endl;
+	cout << "AMean = " << AMean << " : ";
+	cout << "GMean = " << GMean << endl;
+
+	Mean(A, D, AMean, GMean);
+	cout << endl << "(A,D)" << endl;
+	cout << "AMean = " << AMean << " : ";
+	cout << "GMean = " << GMean << endl;
+}
+
+Proc 13)
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+void Sortdec3(double& A, double& B, double& C) {
+    if (A < B) swap(A, B);
+    if (A < C) swap(A, C);
+    if (B < C) swap(B, C);
+    return;
+}
+int main()
+{
+
+    for (int i = 1; i <= 2; i++) {
+        double A, B, C;
+        cout << "Write A:";
+        cin >> A;
+        cout << "Write B:";
+        cin >> B;
+        cout << "Write C:";
+        cin >> C;
+
+        Sortdec3(A, B, C);
+        cout << A << B << C << endl;
+    }
+}
+
+Proc 15)
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+void shiftleft3(float &A, float &B, float &C){
+    swap(A, B);
+    swap(C, B);
+    return;
+}
+int main()
+{
+
+    for (int i = 1; i <= 2; ++i) {
+        float A, B, C;
+        cout << "Write A:";
+        cin >> A;
+        cout << "Write B:";
+        cin >> B;
+        cout << "Write C:";
+        cin >> C;
+
+        shiftleft3(A, B, C);
+        cout << A << B << C << endl;
+    }
+
+    return 0;
+}
+
+Proc 19)
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+float rings(float R1, float R2) {
+    return 3.14 * (R1 * R1 - R2 * R2);
+}
+
+int main(void)
+{
+    int i;
+    for (i = 1; i <= 3; ++i) {
+        float R1, R2;
+        cout << "Write R1:";
+        cin >> R1;
+        cout << "Write R2:";
+        cin >> R2;
+
+        cout << rings(R1, R2) << endl;
+    }
+}
+
+Proc 25)
+
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+float IsSquare(float &a)
+{
+    float k, x;
+    a=sqrt(k);
+
+    return a;
+
+}
+int main(void)
+{
+    for(int i=1;i<=10;++i)
+    {
+
+        float k,a;
+        cin >> k;
+        IsSquare(k);
+
+        if(pow(a,2)==k )
+        {
+        cout << "True"<<endl;
+        }else
+        {
+        cout << "False"<<endl;
+        }
+    }
+    return 0;
+}
+
+Proc 29)
+
+#include <iostream>
+#include <cmath>
+#include <stdio.h>
+
+using namespace std;
+
+int digitcount(int k) {
+    int i = 1;
+    for (; k >= 10; i++) k /= 10;
+    return i;
+}
+
+int main(void)
+{
+    int i, k;
+
+    for (i = 1; i <= 5; ++i) {
+        cout << "K:";
+        cin >> k;
+        cout << digitcount(k) << endl;
+    }
+}
